@@ -8,11 +8,11 @@ Spring Framework Reference Documentation
 
 Overview of Spring Framework
 =>
-스프림 프레임워크의 개요
+스프링 프레임워크의 개요
 
-Part&nbsp;I
+Part&nbsp;I.&nbsp;Overview of Spring Framework
 =>
-I부
+I부.&nbsp;스프링 프레임워크의 개요
 
 Home
 =>
@@ -25,3 +25,11 @@ Prev
 Next
 =>
 다음
+
+Up
+=>
+위로
+
+Getting Started with Spring
+=>
+스프링 시작하기
