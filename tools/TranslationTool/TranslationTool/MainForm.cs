@@ -280,6 +280,8 @@ namespace TranslationTool
 
         private void LoadReplacementDataFromFile()
         {
+            dic.Clear();    // prevent for key conflict exception
+
             using (StreamReader sr = File.OpenText(ReplaceRuleFile))
             {
                 while (sr.Peek() > 0)
