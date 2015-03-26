@@ -117,7 +117,8 @@ namespace TranslationTool
                 while (sr.Peek() > 0)
                 {
                     string line = sr.ReadLine();
-                    if (line.Contains("charset=UTF-8")) return true;
+                    // mvc.html contains "charset=UTF-8" string
+                    if (line.Contains("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">")) return true;
                 }
             }
 
@@ -205,7 +206,7 @@ namespace TranslationTool
                         sw.WriteLine(MetaDest);
                         continue;
                     }
-                    else if (line == BeginScript)
+                    else if (line.Contains(BeginScript))    // 앞에 공백이 있는 페이지도 존재했다(beans.html)
                     {
                         scriptLevel++;
                     }
