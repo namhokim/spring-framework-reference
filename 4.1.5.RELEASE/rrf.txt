@@ -28,40 +28,71 @@ I부.&nbsp;스프링 프레임워크의 개요
 2.1. Dependency Injection and Inversion of Control
 2.1. 의존성 주입(DI)과 제어 역전(IoC)
 
+2.1&nbsp;Dependency Injection and Inversion of Control
+2.1&nbsp;의존성 주입(DI)과 제어 역전(IoC)
+
 2.2. Modules
-2.2. 모듈들
+2.2. 모듈
+
+2.2&nbsp;Modules
+2.2&nbsp;모듈
 
 2.2.1. Core Container
 2.2.1. 핵심 컨테이너
 
+2.2.1&nbsp;Core Container
+2.2.1&nbsp;핵심 컨테이너
+
 2.2.2. AOP and Instrumentation
 2.2.2. AOP와 인스트루멘테이션(Instrumentation)
+
+2.2.2&nbsp;AOP and Instrumentation
+2.2.2&nbsp;AOP와 인스트루멘테이션(Instrumentation)
 
 2.2.3. Messaging
 2.2.3. 메세징
 
+2.2.3&nbsp;Messaging
+2.2.3&nbsp;메세징
+
 2.2.4. Data Access/Integration
 2.2.4. 데이터 액세스/통합
+
+2.2.4&nbsp;Data Access/Integration
+2.2.4&nbsp;데이터 액세스/통합
 
 2.2.5. Web
 2.2.5. 웹
 
+2.2.5&nbsp;Web
+2.2.5&nbsp;웹
+
 2.2.6. Test
 2.2.6. 테스트
+
+2.2.6&nbsp;Test
+2.2.6&nbsp;테스트
 
 2.3. Usage scenarios
 2.3. 사용 시나리오들
 
+2.3&nbsp;Usage scenarios
+2.3&nbsp;사용 시나리오들
+
 2.3.1. Dependency Management and Naming Conventions
 2.3.1. 의존성 관리와 네이밍 컨벤션들
 
+2.3.1&nbsp;Dependency Management and Naming Conventions
+2.3.1&nbsp;의존성 관리와 네이밍 컨벤션들
+
 Spring Dependencies and Depending on Spring
-스프링 의존성들과 스프링의존
+스프링 의존성들과 스프링에 대한 의존
 
 Maven Dependency Management
+메이븐 의존성 관리
 
 Maven "Bill Of Materials" Dependency
-Maven "Bill Of Materials" Dependency
+메이븐 "제품 구성 사양(BOM)" 의존성
 
 Gradle Dependency Management
 Gradle 의존성 관리
@@ -75,6 +106,9 @@ Zip 파일들의 배포
 2.3.2. Logging
 2.3.2. 로깅
 
+2.3.2&nbsp;Logging
+2.3.2&nbsp;로깅
+
 Not Using Commons Logging
 Commons Logging 사용하지 않기
 
@@ -83,6 +117,9 @@ SLF4J 사용하기
 
 Using Log4J
 Log4J 사용하기
+
+Runtime Containers with Native JCL
+네이티브 JCL 런타임 컨테이너 사용하기
 
 II. What&#8217;s New in Spring Framework 4.x
 II. 스프링 프레임워크 4.x에 새로운 기능

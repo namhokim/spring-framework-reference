@@ -1,92 +1,77 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>2.&nbsp;스프링 프레임워크 소개</title><link rel="stylesheet" type="text/css" href="css/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="스프링 프레임워크 레퍼런스 문서"><link rel="up" href="spring-introduction.html" title="Part&nbsp;I.&nbsp;스프링 프레임워크의 개요"><link rel="prev" href="overview-getting-started-with-spring.html" title="1.&nbsp;스프링 시작하기"><link rel="next" href="spring-whats-new.html" title="II부.&nbsp;스프링 프레임워크 4.x에 새로운 기능"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;스프링 프레임워크 소개</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview-getting-started-with-spring.html">이전</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;I.&nbsp;스프링 프레임워크의 개요</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="spring-whats-new.html">다음</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="overview" href="#overview"></a>2.&nbsp;스프링 프레임워크 소개</h2></div></div></div>
-<p>The Spring Framework is a Java platform that provides comprehensive infrastructure support
-for developing Java applications. Spring handles the infrastructure so you can focus on
-your application.</p>
-<p>Spring enables you to build applications from "plain old Java objects" (POJOs) and to
-apply enterprise services non-invasively to POJOs. This capability applies to the Java
-SE programming model and to full and partial Java EE.</p>
-<p>Examples of how you, as an application developer, can benefit from the Spring platform:</p>
+<p>스프링 프레임워크는 자바 애플리케이션 개발을 위한 포괄적인 인프라스트럭쳐를 제공하는 자바 플랫폼이다. 스프링은 당신이 애플리케이션에 집중할 수 있도록 인프라스트럭쳐를 다룬다.</p>
+<p>스프링을 사용하면 "plain old Java objects"(POJOs)로 어플리케이션을 만들고 엔터프라이즈 서비스를 비침투적으로 POJO에 적용할 수 있다. 이 능력은 Java SE 프로그래밍에 적용되고 전제 혹은 부분적으로 Java EE에 적용된다.</p>
+<p>당신이 어플리케이션 개발자라고 가정할 때, 당신이 어떻게 스프링 플랫폼의 이점을 이용할 수 있는가에 대한 예제는 다음과 같다.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-Make a Java method execute in a database transaction without having to deal with
-transaction APIs.
+트랜잭션 API를 사용하지 않고도 데이터베이스 트랜잭션에서 자바메서드를 실행하도록 만든다.
 </li><li class="listitem">
-Make a local Java method a remote procedure without having to deal with remote APIs.
+원격 API를 사용하지 않고도 로컬 자바메서드를 원격 프로시저로 만든다.
 </li><li class="listitem">
-Make a local Java method a management operation without having to deal with JMX APIs.
+JMX API를 사용하지 않고도 로컬 자바메서드를 관리작업으로 만든다.
 </li><li class="listitem">
-Make a local Java method a message handler without having to deal with JMS APIs.
+JMS API를 사용하지 않고도 로컬 자바메서드를 메시지 핸들러로 만든다.
 </li></ul></div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="overview-dependency-injection" href="#overview-dependency-injection"></a>2.1&nbsp;Dependency Injection and Inversion of Control</h2></div></div></div>
-<p>A Java application&#8201;&#8212;&#8201;a loose term that runs the gamut from constrained, embedded
-applications to n-tier, server-side enterprise applications&#8201;&#8212;&#8201;typically consists of
-objects that collaborate to form the application proper. Thus the objects in an
-application have <span class="emphasis"><em>dependencies</em></span> on each other.</p>
-<p>Although the Java platform provides a wealth of application development functionality,
-it lacks the means to organize the basic building blocks into a coherent whole, leaving
-that task to architects and developers. Although you can use design patterns such
-as <span class="emphasis"><em>Factory</em></span>, <span class="emphasis"><em>Abstract Factory</em></span>, <span class="emphasis"><em>Builder</em></span>, <span class="emphasis"><em>Decorator</em></span>, and <span class="emphasis"><em>Service Locator</em></span>
-to compose the various classes and object instances that make up an application,
-these patterns are simply that: best practices given a name, with a description
-of what the pattern does, where to apply it, the problems it addresses, and so forth.
-Patterns are formalized best practices that <span class="emphasis"><em>you must implement yourself</em></span> in your
-application.</p>
-<p>The Spring Framework <span class="emphasis"><em>Inversion of Control</em></span> (IoC) component addresses this concern by
-providing a formalized means of composing disparate components into a fully working
-application ready for use. The Spring Framework codifies formalized design patterns as
-first-class objects that you can integrate into your own application(s). Numerous
-organizations and institutions use the Spring Framework in this manner to engineer
-robust, <span class="emphasis"><em>maintainable</em></span> applications.</p>
-<div class="sidebar"><a name="background-ioc" href="#background-ioc"></a><div class="titlepage"><div><div><p class="title"><b>Background</b></p></div></div></div>
-<p>"<span class="emphasis"><em>The question is, what aspect of control are [they] inverting?</em></span>" Martin Fowler posed
-this question about Inversion of Control (IoC)
-<a class="ulink" href="http://martinfowler.com/articles/injection.html" target="_top">on his site</a> in 2004. Fowler suggested
-renaming the principle to make it more self-explanatory and came up with <span class="emphasis"><em>Dependency
-Injection</em></span>.</p>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="overview-dependency-injection" href="#overview-dependency-injection"></a>2.1&nbsp;의존성 주입(DI)과 제어 역전(IoC)</h2></div></div></div>
+<p>제약을 가진 임베디드 애플리케이션부터 n-티어의 서버사이드 엔터프라이즈 어플리케이션까지 전반적인 느슨하게 포함한
+자바 어플리케이션은 보통 어플리케이션에 적합한 형식으로 협력하는 객체로 이루어져 있다.
+그래서 어플리케이션의 객체들은 서로 <span class="emphasis"><em>의존성</em></span>을 가지고 있다.</p>
+<p>자바 플랫폼이 어플리케이션 개발에 관련된 풍부한 기능을 제공하더라도,
+기본적인 구성 요소들을 서로 밀착된 하나의 큰 구조로 만드는 기능은 부족하다.
+따라서 아키텍트와 개발자들이 이 작업을 해야 한다.
+비록, 애플리케이션을 개발시에 다양한 클래스들과 객체 인스턴스들을 구성하기 위해
+<span class="emphasis"><em>팩토리</em></span>, <span class="emphasis"><em>추상 팩토리</em></span>,
+<span class="emphasis"><em>빌더</em></span>, <span class="emphasis"><em>데코레이터</em></span>,
+<span class="emphasis"><em>서비스 로케이터</em></span>와 같은 디자인 패턴을 사용할 수 있을 수는 있다.
+하지만 이러한 패턴들은 이름이 부여된 좋은 사례들로 이런 패턴이 무슨 일을 하고, 어디에 적용할 수 있고,
+어떤 문제에 대한 것인지 등을 단순히 설명한 것에 불과하다.
+패턴들은 여러분의 애플리케이션에서 <span class="emphasis"><em>여러분이 스스로 구현</em></span>해야 할
+공식화된 좋은 사례들인 것이다.</p>
+<p>스프링 프레임워크의 <span class="emphasis"><em>제어의 역전</em></span> (IoC) 컴포넌트는 이러한 관심사에 접근한다.
+즉, 서로 다른 컴포넌트들을 사용할 준비가 된 완전히 동작하는 애플리케이션을 구성하는 형식적인 의미를 제공한다.
+스프링 프레임워크는 자신의 어플리케이션으로 통합할 수 있는 일급 클래스 객체들을 형식화된 디자인 패턴으로 만들었다.
+수많은 단체와 기관들은 신뢰할 수 있고 <span class="emphasis"><em>유지보수 가능한</em></span> 어플리케이션을 만들려고
+이러한 방법으로 스프링 프레임워크를 사용한다.</p>
+<div class="sidebar"><a name="background-ioc" href="#background-ioc"></a><div class="titlepage"><div><div><p class="title"><b>배경지식</b></p></div></div></div>
+<p>"<span class="emphasis"><em>제어의 어떤 관점이 역전되었는가?</em></span>" 마틴 파울러(Martin Fowler)는
+2004년 <a class="ulink" href="http://martinfowler.com/articles/injection.html" target="_top">자신의 사이트</a>에서 제어의 역전(IoC)에 대한 의견을 말한적이 있다. 파울러는 원리가 더 명확하게 드러나도록 이름을 <span class="emphasis"><em>의존성 주입(Dependency Injection)</em>으로 바꾸어야 한다고 제한했다.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="overview-modules" href="#overview-modules"></a>2.2&nbsp;Modules</h2></div></div></div>
-<p>The Spring Framework consists of features organized into about 20 modules. These modules
-are grouped into Core Container, Data Access/Integration, Web, AOP (Aspect Oriented
-Programming), Instrumentation, Messaging, and Test, as shown in the following diagram.</p>
-<div class="figure"><a name="d5e204" href="#d5e204"></a><p class="title"><b>Figure&nbsp;2.1.&nbsp;Overview of the Spring Framework</b></p><div class="figure-contents">
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="overview-modules" href="#overview-modules"></a>2.2&nbsp;모듈</h2></div></div></div>
+<p>스프링 프레임워크는 약 20개의 모듈로 구조화된 특징으로 이루어져 있다.
+이러한 모듈들은 다음 다이어그램에 보이듯 핵심 컨테이너, 데이터 접근/통합, 웹, AOP(관점지향 프로그래밍),
+인스트루멘테이션(Instrumentation), 메세징, 테스트로 그룹을 나눌 수 있다.</p>
+<div class="figure"><a name="d5e204" href="#d5e204"></a><p class="title"><b>그림&nbsp;2.1.&nbsp;스프링 프로그램의 개요</b></p><div class="figure-contents">
 <div class="mediaobject"><img src="images/spring-overview.png" alt="spring overview"></div>
 </div></div><br class="figure-break">
-<p>The following sections list the available modules for each feature along with their
-artifact names and the topics they cover. Artifact names correlate to <span class="emphasis"><em>artifact IDs</em></span> used
-in <a class="link" href="overview.html#dependency-management" title="2.3.1&nbsp;Dependency Management and Naming Conventions">Dependency Management tools</a>.</p>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-core-container" href="#overview-core-container"></a>2.2.1&nbsp;Core Container</h3></div></div></div>
-<p>The <a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans"><span class="emphasis"><em>Core Container</em></span></a> consists of the <code class="literal">spring-core</code>,
-<code class="literal">spring-beans</code>, <code class="literal">spring-context</code>, <code class="literal">spring-context-support</code>, and <code class="literal">spring-expression</code>
-(Spring Expression Language) modules.</p>
-<p>The <code class="literal">spring-core</code> and <code class="literal">spring-beans</code> modules <a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans">provide the fundamental
-parts of the framework</a>, including the IoC and Dependency Injection features. The
-<code class="literal">BeanFactory</code> is a sophisticated implementation of the factory pattern. It removes the
-need for programmatic singletons and allows you to decouple the configuration and
-specification of dependencies from your actual program logic.</p>
-<p>The <a class="link" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext"><span class="emphasis"><em>Context</em></span></a> (<code class="literal">spring-context</code>) module builds on the solid
-base provided by the <a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans"><span class="emphasis"><em>Core and Beans</em></span></a> modules: it is a means to
-access objects in a framework-style manner that is similar to a JNDI registry. The
-Context module inherits its features from the Beans module and adds support for
-internationalization (using, for example, resource bundles), event propagation, resource
-loading, and the transparent creation of contexts by, for example, a Servlet container.
-The Context module also supports Java EE features such as EJB, JMX, and basic remoting.
-The <code class="literal">ApplicationContext</code> interface is the focal point of the Context module.
-<code class="literal">spring-context-support</code> provides support for integrating common third-party libraries
-into a Spring application context for caching (EhCache, Guava, JCache), mailing
-(JavaMail), scheduling (CommonJ, Quartz) and template engines (FreeMarker, JasperReports,
-Velocity).</p>
-<p>The <code class="literal">spring-expression</code> module provides a powerful <a class="link" href="expressions.html" title="8.&nbsp;Spring Expression Language (SpEL)"><span class="emphasis"><em>Expression
-Language</em></span></a> for querying and manipulating an object graph at runtime. It is an extension
-of the unified expression language (unified EL) as specified in the JSP 2.1
-specification. The language supports setting and getting property values, property
-assignment, method invocation, accessing the content of arrays, collections and indexers,
-logical and arithmetic operators, named variables, and retrieval of objects by name from
-Spring&#8217;s IoC container. It also supports list projection and selection as well as common
-list aggregations.</p>
+<p>다음 섹션에서는 각각 기능별로 사용할 수 있는 모듈들의 아티팩트(artifact)명과 그것들이 다루는 주제들에 대해 나열한다.
+아티팩트명들은 <a class="link" href="overview.html#dependency-management" title="2.3.1&nbsp;의존성 관리와 네이밍 컨벤션들">의존성 관리 도구들</a>에서 사용하는 <span class="emphasis"><em>아티팩트 ID들</em></span>에 대응한다.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-core-container" href="#overview-core-container"></a>2.2.1&nbsp;핵심 컨테이너</h3></div></div></div>
+<p><a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans"><span class="emphasis"><em>핵심 컨테이너</em></span></a>는 <code class="literal">spring-core</code>,
+<code class="literal">spring-beans</code>, <code class="literal">spring-context</code>, <code class="literal">spring-context-support</code>, <code class="literal">spring-expression</code>(스프링 표현 언어) 모듈들로
+구성되어 있다.</p>
+<p><code class="literal">spring-core</code> 와 <code class="literal">spring-beans</code> 모듈은 IoC와 의존성 주입 기능들을 포함하는,
+<a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans">프레임워크의 근본 기능이라 할 수 있는 부분을 제공한다</a>. <code class="literal">BeanFactory</code>는 팩토리 패턴의 정교한 구현체이다.
+그것은 싱글톤을 구현할 수고를 덜어주며, 실제 동작하는 프로그램 로직에서 설정과 명세를 분리하게 해준다.</p>
+<p><a class="link" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext"><span class="emphasis"><em>컨텍스트</em></span></a> (<code class="literal">spring-context</code>) 모듈은 <a class="link" href="beans.html#beans-introduction" title="5.1&nbsp;Introduction to the Spring IoC container and beans"><span class="emphasis"><em>핵심 및 빈즈</em></span></a> 모듈에서 제공하는 단단한 기반위에 구성되었다. 
+그 말은 JNDI 레지스트리와 유사한 프레임워크-스타일로 객체에 접근한다는 의미다.
+컨텐스트 모듈은 빈즈 모듈의 특징들을 상속받고 국제화(예. 리소스 번들의 사용), 이벤트 전파,
+리소스 로딩, 컨텍스트의 투명한 생성(예. 서블릿 컨테이너) 같은 지원을 부가한다.
+또한 컨텍스트 모듈은 EJB, JMX, 기본 리모팅 같은 Java EE의 기능을 지원한다.
+<code class="literal">ApplicationContext</code> 인터페이스는 컨텍스트 모듈의 중심점을 담당한다.
+<code class="literal">spring-context-support</code>는 캐싱(EhCache, Guava, JCache),
+메일링(JavaMail), 스케쥴링(CommonJ, Quartz), 템플릿 엔진(FreeMarker, JasperReports, Velocity)과 같은
+공통 서드-파티 라이브러리들을 스프링 애플리케이션 컨텍스트로의 통합을 지원을 제공한다.</p>
+<p><code class="literal">spring-expression</code> 모듈은 런타임에서 객체 그래프를 조회하고 조작하는
+강력한 <a class="link" href="expressions.html" title="8.&nbsp;Spring Expression Language (SpEL)"><span class="emphasis"><em>표현 언어</em></span></a>를 제공한다.
+그것은 JSP 2.1 명세에 명시된 것처럼 통합된 표현언어(unified EL)의 확장이다.
+그 언어는 프로퍼티를 설정하고 가져오는 기능과 프로퍼티 할당, 메서드 호출, 배열, 컬렉션, 인덱서의 컨텍스트 접근,
+논리적 및 산술적 연산들, 이름있는 변수, 스프링의 IoC 컨테이너에서 이름으로 객체를 획득하는 기능을 지원한다.
+또한 공통의 리스트 집합 뿐 아니라 리스트의 투영과 선택도 지원한다.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-aop-instrumentation" href="#overview-aop-instrumentation"></a>2.2.2&nbsp;AOP and Instrumentation</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-aop-instrumentation" href="#overview-aop-instrumentation"></a>2.2.2&nbsp;AOP와 인스트루멘테이션(Instrumentation)</h3></div></div></div>
 <p>The <code class="literal">spring-aop</code> module provides an <a class="link" href="aop.html#aop-introduction" title="9.1&nbsp;Introduction"><span class="emphasis"><em>AOP</em></span></a> Alliance-compliant
 aspect-oriented programming implementation allowing you to define, for example,
 method interceptors and pointcuts to cleanly decouple code that implements functionality
@@ -98,14 +83,14 @@ attributes.</p>
 implementations to be used in certain application servers. The <code class="literal">spring-instrument-tomcat</code>
 module contains Spring&#8217;s instrumentation agent for Tomcat.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-messaging" href="#overview-messaging"></a>2.2.3&nbsp;Messaging</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-messaging" href="#overview-messaging"></a>2.2.3&nbsp;메세징</h3></div></div></div>
 <p>Spring Framework 4 includes a <code class="literal">spring-messaging</code> module with key abstractions from the
 <span class="emphasis"><em>Spring Integration</em></span> project such as <code class="literal">Message</code>, <code class="literal">MessageChannel</code>, <code class="literal">MessageHandler</code>, and
 others to serve as a foundation for messaging-based applications. The module also
 includes a set of annotations for mapping messages to methods, similar to the Spring MVC
 annotation based programming model.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-data-access" href="#overview-data-access"></a>2.2.4&nbsp;Data Access/Integration</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-data-access" href="#overview-data-access"></a>2.2.4&nbsp;데이터 액세스/통합</h3></div></div></div>
 <p>The <span class="emphasis"><em>Data Access/Integration</em></span> layer consists of the JDBC, ORM, OXM, JMS, and
 Transaction modules.</p>
 <p>The <code class="literal">spring-jdbc</code> module provides a <a class="link" href="jdbc.html#jdbc-introduction" title="14.1&nbsp;Introduction to Spring Framework JDBC">JDBC</a>-abstraction layer that
@@ -126,7 +111,7 @@ mapping</a> implementations such as JAXB, Castor, XMLBeans, JiBX and XStream.</p
 consuming messages. Since Spring Framework 4.1, it provides integration with the
 <code class="literal">spring-messaging</code> module.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-web" href="#overview-web"></a>2.2.5&nbsp;Web</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-web" href="#overview-web"></a>2.2.5&nbsp;웹</h3></div></div></div>
 <p>The <span class="emphasis"><em>Web</em></span> layer consists of the <code class="literal">spring-web</code>, <code class="literal">spring-webmvc</code>, <code class="literal">spring-websocket</code>, and
 <code class="literal">spring-webmvc-portlet</code> modules.</p>
 <p>The <code class="literal">spring-web</code> module provides basic web-oriented integration features such as
@@ -142,7 +127,7 @@ Framework.</p>
 the MVC implementation to be used in a Portlet environment and mirrors the functionality
 of the <code class="literal">spring-webmvc</code> module.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-testing" href="#overview-testing"></a>2.2.6&nbsp;Test</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-testing" href="#overview-testing"></a>2.2.6&nbsp;테스트</h3></div></div></div>
 <p>The <code class="literal">spring-test</code> module supports the <a class="link" href="testing.html#unit-testing" title="11.2&nbsp;Unit Testing">unit testing</a> and
 <a class="link" href="testing.html#integration-testing" title="11.3&nbsp;Integration Testing">integration testing</a> of Spring components with JUnit or TestNG. It
 provides consistent <a class="link" href="testing.html#testcontext-ctx-management" title="Context management">loading</a> of Spring
@@ -151,7 +136,7 @@ contexts. It also provides <a class="link" href="testing.html#mock-objects" titl
 code in isolation.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="overview-usagescenarios" href="#overview-usagescenarios"></a>2.3&nbsp;Usage scenarios</h2></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="overview-usagescenarios" href="#overview-usagescenarios"></a>2.3&nbsp;사용 시나리오들</h2></div></div></div>
 <p>The building blocks described previously make Spring a logical choice in many scenarios,
 from embedded applications that run on resource-constrained devices to full-fledged
 enterprise applications that use Spring&#8217;s transaction management functionality and web
@@ -193,7 +178,7 @@ existing applications is not difficult.</p>
 Enterprise JavaBeans, enabling you to reuse your existing POJOs and wrap them in
 stateless session beans for use in scalable, fail-safe web applications that might need
 declarative security.</p>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="dependency-management" href="#dependency-management"></a>2.3.1&nbsp;Dependency Management and Naming Conventions</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="dependency-management" href="#dependency-management"></a>2.3.1&nbsp;의존성 관리와 네이밍 컨벤션들</h3></div></div></div>
 <p>Dependency management and dependency injection are different things. To get those nice
 features of Spring into your application (like dependency injection) you need to
 assemble all the libraries needed (jar files) and get them onto your classpath at
@@ -212,7 +197,7 @@ Spring library modules in this guide we use a shorthand naming convention <code 
 <code class="literal">spring-*.jar,</code> where <code class="literal">*</code> represents the short name for the module (e.g. <code class="literal">spring-core</code>,
 <code class="literal">spring-webmvc</code>, <code class="literal">spring-jms</code>, etc.). The actual jar file name that you use is normally
 the module name concatenated with the version number
-(e.g. <span class="emphasis"><em>spring-core-4.1.5.RELEASE.jar</em></span>).</p>
+(e.g. <span class="emphasis"><em>spring-core-4.1.6.RELEASE.jar</em></span>).</p>
 <p>Each release of the Spring Framework will publish artifacts to the following places:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 Maven Central, which is the default repository that Maven queries, and does not
@@ -233,24 +218,24 @@ jars bundled together for easy download.
 recommend the use of an automated system like Maven, Gradle or Ivy, but you can also do
 it manually by downloading all the jars yourself.</p>
 <p>You will find bellow the list of Spring artifacts. For a more complete description of each
-modules, see <a class="xref" href="overview.html#overview-modules" title="2.2&nbsp;Modules">Section&nbsp;2.2, &#8220;Modules&#8221;</a>.</p>
+modules, see <a class="xref" href="overview.html#overview-modules" title="2.2&nbsp;모듈들">Section&nbsp;2.2, &#8220;Modules&#8221;</a>.</p>
 <div class="table"><a name="d5e385" href="#d5e385"></a><p class="title"><b>Table&nbsp;2.1.&nbsp;Spring Framework Artifacts</b></p><div class="table-contents">
 <table summary="Spring Framework Artifacts" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col class="col_1"><col class="col_2"><col class="col_3"></colgroup><thead><tr><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">GroupId</th><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">ArtifactId</th><th style="border-bottom: 0.5pt solid ; " align="left" valign="top">Description</th></tr></thead><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-aop</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Proxy-based AOP support</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-aspects</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>AspectJ based aspects</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-beans</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Beans support, including Groovy</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-context</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Application context runtime, including scheduling and remoting abstractions</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-context-support</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Support classes for integrating common third-party libraries into a Spring application context</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-core</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Core utilities, used by many other Spring modules</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-expression</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Spring Expression Language (SpEL)</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-instrument</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Instrumentation agent for JVM bootstrapping</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-instrument-tomcat</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Instrumentation agent for Tomcat</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-jdbc</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>JDBC support package, including DataSource setup and JDBC access support</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-jms</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>JMS support package, including helper classes to send and receive JMS messages</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-messaging</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Support for messaging architectures and protocols</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-orm</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Object/Relational Mapping, including JPA and Hibernate support</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-oxm</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Object/XML Mapping</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-test</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Support for unit testing and integration testing Spring components</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-tx</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Transaction infrastructure, including DAO support and JCA integration</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-web</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Web support packages, including client and web remoting</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-webmvc</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>REST Web Services and model-view-controller implementation for web applications</p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>spring-webmvc-portlet</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p>MVC implementation to be used in a Portlet environment</p></td></tr><tr><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p>org.springframework</p></td><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p>spring-websocket</p></td><td style="" align="left" valign="top"><p>WebSocket and SockJS implementations, including STOMP support</p></td></tr></tbody></table>
 </div></div><br class="table-break">
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-spring-dependencies" href="#overview-spring-dependencies"></a>Spring Dependencies and Depending on Spring</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-spring-dependencies" href="#overview-spring-dependencies"></a>스프링 의존성들과 스프링에 대한 의존</h4></div></div></div>
 <p>Although Spring provides integration and support for a huge range of enterprise and
 other external tools, it intentionally keeps its mandatory dependencies to an absolute
 minimum: you shouldn&#8217;t have to locate and download (even automatically) a large number
 of jar libraries in order to use Spring for simple use cases. For basic dependency
 injection there is only one mandatory external dependency, and that is for logging (see
 below for a more detailed description of logging options).</p>
-<p>다음 we outline the basic steps needed to configure an application that depends on
+<p>Next we outline the basic steps needed to configure an application that depends on
 Spring, first with Maven and then with Gradle and finally using Ivy. In all cases, if
 anything is unclear, refer to the documentation of your dependency management system, or
 look at some sample code - Spring itself uses Gradle to manage dependencies when it is
 building, and our samples mostly use Gradle or Maven.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-maven-dependency-management" href="#overview-maven-dependency-management"></a>Maven Dependency Management</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-maven-dependency-management" href="#overview-maven-dependency-management"></a>메이븐 의존성 관리</h4></div></div></div>
 <p>If you are using <a class="ulink" href="http://maven.apache.org/" target="_top">Maven</a> for dependency management you don&#8217;t even
 need to supply the logging dependency explicitly. For example, to create an application
 context and use dependency injection to configure an application, your Maven dependencies
@@ -259,7 +244,7 @@ will look like this:</p>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-context<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;scope&gt;</span>runtime<span class="hl-tag">&lt;/scope&gt;</span>
     <span class="hl-tag">&lt;/dependency&gt;</span>
 <span class="hl-tag">&lt;/dependencies&gt;</span></pre>
@@ -293,7 +278,7 @@ repository location in your Maven configuration. For full releases:</p>
     <span class="hl-tag">&lt;/repository&gt;</span>
 <span class="hl-tag">&lt;/repositories&gt;</span></pre>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-maven-bom" href="#overview-maven-bom"></a>Maven "Bill Of Materials" Dependency</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-maven-bom" href="#overview-maven-bom"></a>메이븐 "제품 구성 사양(BOM)" 의존성</h4></div></div></div>
 <p>It is possible to accidentally mix different versions of Spring JARs when using Maven.
 For example, you may find that a third-party library, or another Spring project,
 pulls in a transitive dependency to an older release. If you forget to explicitly declare
@@ -307,7 +292,7 @@ the same version.</p>
         <span class="hl-tag">&lt;dependency&gt;</span>
             <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
             <span class="hl-tag">&lt;artifactId&gt;</span>spring-framework-bom<span class="hl-tag">&lt;/artifactId&gt;</span>
-            <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+            <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
             <span class="hl-tag">&lt;type&gt;</span>pom<span class="hl-tag">&lt;/type&gt;</span>
             <span class="hl-tag">&lt;scope&gt;</span>import<span class="hl-tag">&lt;/scope&gt;</span>
         <span class="hl-tag">&lt;/dependency&gt;</span>
@@ -326,7 +311,7 @@ attribute when depending on Spring Framework artifacts:</p>
     <span class="hl-tag">&lt;/dependency&gt;</span>
 <span class="hl-tag">&lt;dependencies&gt;</span></pre>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-gradle-dependency-management" href="#overview-gradle-dependency-management"></a>Gradle Dependency Management</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-gradle-dependency-management" href="#overview-gradle-dependency-management"></a>Gradle 의존성 관리</h4></div></div></div>
 <p>To use the Spring repository with the <a class="ulink" href="http://www.gradle.org/" target="_top">Gradle</a> build system,
 include the appropriate URL in the <code class="literal">repositories</code> section:</p>
 <pre class="programlisting">repositories {
@@ -338,11 +323,11 @@ include the appropriate URL in the <code class="literal">repositories</code> sec
 appropriate. Once a repository has been configured, you can declare dependencies in the
 usual Gradle way:</p>
 <pre class="programlisting">dependencies {
-    compile("org.springframework:spring-context:4.1.5.RELEASE")
-    testCompile("org.springframework:spring-test:4.1.5.RELEASE")
+    compile("org.springframework:spring-context:4.1.6.RELEASE")
+    testCompile("org.springframework:spring-test:4.1.6.RELEASE")
 }</pre>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-ivy-dependency-management" href="#overview-ivy-dependency-management"></a>Ivy Dependency Management</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-ivy-dependency-management" href="#overview-ivy-dependency-management"></a>Ivy 의존성 관리</h4></div></div></div>
 <p>If you prefer to use <a class="ulink" href="http://ant.apache.org/ivy" target="_top">Ivy</a> to manage dependencies then there
 are similar configuration options.</p>
 <p>To configure Ivy to point to the Spring repository add the following resolver to your
@@ -356,9 +341,9 @@ are similar configuration options.</p>
 appropriate.</p>
 <p>Once configured, you can add dependencies in the usual way. For example (in <code class="literal">ivy.xml</code>):</p>
 <pre class="programlisting"><span class="hl-tag">&lt;dependency</span> <span class="hl-attribute">org</span>=<span class="hl-value">"org.springframework"</span>
-    <span class="hl-attribute">name</span>=<span class="hl-value">"spring-core"</span> <span class="hl-attribute">rev</span>=<span class="hl-value">"4.1.5.RELEASE"</span> <span class="hl-attribute">conf</span>=<span class="hl-value">"compile-&gt;runtime"</span><span class="hl-tag">/&gt;</span></pre>
+    <span class="hl-attribute">name</span>=<span class="hl-value">"spring-core"</span> <span class="hl-attribute">rev</span>=<span class="hl-value">"4.1.6.RELEASE"</span> <span class="hl-attribute">conf</span>=<span class="hl-value">"compile-&gt;runtime"</span><span class="hl-tag">/&gt;</span></pre>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-distribution-zip" href="#overview-distribution-zip"></a>Distribution Zip Files</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-distribution-zip" href="#overview-distribution-zip"></a>Zip 파일들의 배포</h4></div></div></div>
 <p>Although using a build system that supports dependency management is the recommended
 way to obtain the Spring Framework, it is still possible to download a distribution
 zip file.</p>
@@ -367,12 +352,12 @@ convenience, you don&#8217;t need Maven or any other build system in order to do
 <p>To download a distribution zip open a web browser to
 <a class="ulink" href="http://repo.spring.io/release/org/springframework/spring" target="_top">http://repo.spring.io/release/org/springframework/spring</a> and select the appropriate
 subfolder for the version that you want. Distribution files end <code class="literal">-dist.zip</code>, for example
-<code class="literal">spring-framework-4.1.5.RELEASE-RELEASE-dist.zip</code>. Distributions are also published
+<code class="literal">spring-framework-4.1.6.RELEASE-RELEASE-dist.zip</code>. Distributions are also published
 for <a class="ulink" href="http://repo.spring.io/milestone/org/springframework/spring" target="_top">milestones</a> and
 <a class="ulink" href="http://repo.spring.io/snapshot/org/springframework/spring" target="_top">snapshots</a>.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-logging" href="#overview-logging"></a>2.3.2&nbsp;Logging</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-logging" href="#overview-logging"></a>2.3.2&nbsp;로깅</h3></div></div></div>
 <p>Logging is a very important dependency for Spring because <span class="emphasis"><em>a)</em></span> it is the only mandatory
 external dependency, <span class="emphasis"><em>b)</em></span> everyone likes to see some output from the tools they are
 using, and <span class="emphasis"><em>c)</em></span> Spring integrates with lots of other tools all of which have also made
@@ -397,7 +382,7 @@ appropriate (or you can tell it which one if you need to). If nothing else is av
 you get pretty nice looking logs just from the JDK (java.util.logging or JUL for short).
 You should find that your Spring application works and logs happily to the console out
 of the box in most situations, and that&#8217;s important.</p>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-not-using-commons-logging" href="#overview-not-using-commons-logging"></a>Not Using Commons Logging</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-not-using-commons-logging" href="#overview-not-using-commons-logging"></a>Commons Logging 사용하지 않기</h4></div></div></div>
 <p>Unfortunately, the runtime discovery algorithm in <code class="literal">commons-logging</code>, while convenient
 for the end-user, is problematic. If we could turn back the clock and start Spring now
 as a new project it would use a different logging dependency. The first choice would
@@ -417,7 +402,7 @@ an empty jar (more details can be found in the
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;exclusions&gt;</span>
             <span class="hl-tag">&lt;exclusion&gt;</span>
                 <span class="hl-tag">&lt;groupId&gt;</span>commons-logging<span class="hl-tag">&lt;/groupId&gt;</span>
@@ -430,7 +415,7 @@ an empty jar (more details can be found in the
 API on the classpath, so to fix it a new one has to be provided. In the next section we
 show you how to provide an alternative implementation of JCL using SLF4J as an example.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-logging-slf4j" href="#overview-logging-slf4j"></a>Using SLF4J</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-logging-slf4j" href="#overview-logging-slf4j"></a>SLF4J 사용하기</h4></div></div></div>
 <p>SLF4J is a cleaner dependency and more efficient at runtime than <code class="literal">commons-logging</code>
 because it uses compile-time bindings instead of runtime discovery of the other logging
 frameworks it integrates. This also means that you have to be more explicit about what
@@ -451,7 +436,7 @@ implementation itself. In Maven you would do that like this</p>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;exclusions&gt;</span>
             <span class="hl-tag">&lt;exclusion&gt;</span>
                 <span class="hl-tag">&lt;groupId&gt;</span>commons-logging<span class="hl-tag">&lt;/groupId&gt;</span>
@@ -492,7 +477,7 @@ on two libraries not four ( <code class="literal">jcl-over-slf4j</code> and <cod
 also need to exclude the slf4j-api dependency from other external dependencies (not
 Spring), because you only want one version of that API on the classpath.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-logging-log4j" href="#overview-logging-log4j"></a>Using Log4J</h4></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-logging-log4j" href="#overview-logging-log4j"></a>Log4J 사용하기</h4></div></div></div>
 <p>Many people use <a class="ulink" href="http://logging.apache.org/log4j" target="_top">Log4j</a> as a logging framework for
 configuration and management purposes. It&#8217;s efficient and well-established, and in fact
 it&#8217;s what we use at runtime when we build and test Spring. Spring also provides some
@@ -506,7 +491,7 @@ is your dependency declaration:</p>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
     <span class="hl-tag">&lt;/dependency&gt;</span>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>log4j<span class="hl-tag">&lt;/groupId&gt;</span>
@@ -522,7 +507,7 @@ log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
 log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %t %c{2}:%L - %m%n
 
 log4j.category.org.springframework.beans.factory=DEBUG</pre>
-<div class="section"><div class="titlepage"><div><div><h5 class="title"><a name="overview-native-jcl" href="#overview-native-jcl"></a>Runtime Containers with Native JCL</h5></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h5 class="title"><a name="overview-native-jcl" href="#overview-native-jcl"></a>네이티브 JCL 런타임 컨테이너 사용하기</h5></div></div></div>
 <p>Many people run their Spring applications in a container that itself provides an
 implementation of JCL. IBM Websphere Application Server (WAS) is the archetype. This
 often causes problems, and unfortunately there is no silver bullet solution; simply
