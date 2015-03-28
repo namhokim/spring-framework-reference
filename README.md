@@ -7,5 +7,5 @@
 * 한글 스프링 프레임워크 레퍼런스 문서 4.1.5.RELEASE [보기](https://rawgit.com/namhokim/spring-framework-reference/master/4.1.5.RELEASE/index.html)
 
 # 참고문서
-* Spring Framework Reference Documentation [current](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/) / [4.2.0](http://docs.spring.io/spring/docs/4.2.0.BUILD-SNAPSHOT/spring-framework-reference/html/)
+* Spring Framework Reference Documentation [current(4.1.6)](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/) / [4.1.5](http://docs.spring.io/spring/docs/4.1.5.RELEASE/spring-framework-reference/html/)
 * Outsider's Dev Story [링크](http://blog.outsider.ne.kr/tag/spring_reference_documentation)
