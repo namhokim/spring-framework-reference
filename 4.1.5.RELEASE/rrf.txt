@@ -1,4 +1,4 @@
-Spring Framework Reference Documentation
+﻿Spring Framework Reference Documentation
 스프링 프레임워크 레퍼런스 문서
 
 <h2>Authors</h2>
@@ -36,6 +36,9 @@ I부.&nbsp;스프링 프레임워크의 개요
 
 2.2&nbsp;Modules
 2.2&nbsp;모듈
+
+Section&nbsp;2.2, &#8220;Modules&#8221;
+섹션&nbsp;2.2, &#8220;모듈&#8221;
 
 2.2.1. Core Container
 2.2.1. 핵심 컨테이너
@@ -89,10 +92,10 @@ Spring Dependencies and Depending on Spring
 스프링 의존성들과 스프링에 대한 의존
 
 Maven Dependency Management
-메이븐 의존성 관리
+Maven 의존성 관리
 
 Maven "Bill Of Materials" Dependency
-메이븐 "제품 구성 사양(bill of materials, BOM)" 의존성
+Maven의 "제품 구성 사양(bill of materials, BOM)" 의존성
 
 Gradle Dependency Management
 Gradle 의존성 관리
