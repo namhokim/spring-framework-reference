@@ -72,58 +72,56 @@ JMS API를 사용하지 않고도 로컬 자바메서드를 메시지 핸들러�
 또한 공통의 리스트 집합 뿐 아니라 리스트의 투영과 선택도 지원한다.</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-aop-instrumentation" href="#overview-aop-instrumentation"></a>2.2.2&nbsp;AOP와 인스트루멘테이션(Instrumentation)</h3></div></div></div>
-<p>The <code class="literal">spring-aop</code> module provides an <a class="link" href="aop.html#aop-introduction" title="9.1&nbsp;Introduction"><span class="emphasis"><em>AOP</em></span></a> Alliance-compliant
-aspect-oriented programming implementation allowing you to define, for example,
-method interceptors and pointcuts to cleanly decouple code that implements functionality
-that should be separated. Using source-level metadata functionality, you can also
-incorporate behavioral information into your code, in a manner similar to that of .NET
-attributes.</p>
-<p>The separate <code class="literal">spring-aspects</code> module provides integration with AspectJ.</p>
-<p>The <code class="literal">spring-instrument</code> module provides class instrumentation support and classloader
-implementations to be used in certain application servers. The <code class="literal">spring-instrument-tomcat</code>
-module contains Spring&#8217;s instrumentation agent for Tomcat.</p>
+<p><code class="literal">spring-aop</code> 모듈은 <a class="link" href="aop.html#aop-introduction" title="9.1&nbsp;Introduction"><span class="emphasis"><em>AOP</em></span></a> Alliance를 따르는
+관점지향 프로그래밍의 구현체다. 예를 들어 기능적으로 분리되어야 하는 코드를 깔끔하게 분리하는
+메서드-인터셉터와 포인트컷을 정의할 수 있다. 소스레벨의 메타데이터 기능을 사용하면
+.NET 어트리뷰트와 유사한 방법으로 행동에 관한 정보를 코드로 구현할 수 있다.</p>
+<p>분리된 <code class="literal">spring-aspects</code> 모듈은 AspectJ와의 통합을 제공한다.</p>
+<p><code class="literal">spring-instrument</code> 모듈은 클래스 인스트루멘테이션 지원을 제공하는
+특정 애플리케이션 서버들에서 사용되는 클래스 로드 구현체들이다.</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-messaging" href="#overview-messaging"></a>2.2.3&nbsp;메세징</h3></div></div></div>
-<p>Spring Framework 4 includes a <code class="literal">spring-messaging</code> module with key abstractions from the
-<span class="emphasis"><em>Spring Integration</em></span> project such as <code class="literal">Message</code>, <code class="literal">MessageChannel</code>, <code class="literal">MessageHandler</code>, and
-others to serve as a foundation for messaging-based applications. The module also
-includes a set of annotations for mapping messages to methods, similar to the Spring MVC
-annotation based programming model.</p>
+<p>스프링 프레임워크 4는 메세징-기반의 애플리케이션들을 위한 토대를 제공하기 위해
+<code class="literal">Message</code>, <code class="literal">MessageChannel</code>,
+<code class="literal">MessageHandler</code> 등과 같은 <span class="emphasis"><em>스프링 통합(Spring Integration)</em></span>
+프로젝트의 핵심을 추상화시킨 <code class="literal">spring-messaging</code> 모듈을 포함한다.
+이 모듈은 프로그래밍 모델에 기반한 스프링 MVC 애노테이션과 유사한 메소드들에게 메시지들을 매핑하기 위한
+애노테이션들의 집합도 포함한다.</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-data-access" href="#overview-data-access"></a>2.2.4&nbsp;데이터 액세스/통합</h3></div></div></div>
-<p>The <span class="emphasis"><em>Data Access/Integration</em></span> layer consists of the JDBC, ORM, OXM, JMS, and
-Transaction modules.</p>
-<p>The <code class="literal">spring-jdbc</code> module provides a <a class="link" href="jdbc.html#jdbc-introduction" title="14.1&nbsp;Introduction to Spring Framework JDBC">JDBC</a>-abstraction layer that
-removes the need to do tedious JDBC coding and parsing of database-vendor specific error
-codes.</p>
-<p>The <code class="literal">spring-tx</code> module supports <a class="link" href="transaction.html" title="12.&nbsp;Transaction Management">programmatic and declarative transaction</a>
-management for classes that implement special interfaces and for <span class="emphasis"><em>all your POJOs (Plain
-Old Java Objects)</em></span>.</p>
-<p>The <code class="literal">spring-orm</code> module provides integration layers for popular
-<a class="link" href="orm.html#orm-introduction" title="15.1&nbsp;Introduction to ORM with Spring">object-relational mapping</a> APIs, including <a class="link" href="orm.html#orm-jpa" title="15.5&nbsp;JPA">JPA</a>,
-<a class="link" href="orm.html#orm-jdo" title="15.4&nbsp;JDO">JDO</a>, and <a class="link" href="orm.html#orm-hibernate" title="15.3&nbsp;Hibernate">Hibernate</a>. Using the <code class="literal">spring-orm</code> module you can
-use all of these O/R-mapping frameworks in combination with all of the other features
-Spring offers, such as the simple declarative transaction management feature mentioned
-previously.</p>
-<p>The <code class="literal">spring-oxm</code> module provides an abstraction layer that supports <a class="link" href="oxm.html" title="16.&nbsp;Marshalling XML using O/X Mappers">Object/XML
-mapping</a> implementations such as JAXB, Castor, XMLBeans, JiBX and XStream.</p>
-<p>The <code class="literal">spring-jms</code> module (<a class="link" href="jms.html" title="24.&nbsp;JMS (Java Message Service)">Java Messaging Service</a>) contains features for producing and
-consuming messages. Since Spring Framework 4.1, it provides integration with the
-<code class="literal">spring-messaging</code> module.</p>
+<p><span class="emphasis"><em>데이터 액세스/통합</em></span> 계층은 JDBC, ORM, OXM, JMC, 트랜잭션 모듈로 이루어졌다.</p>
+<p><code class="literal">spring-jdbc</code> 모듈은 <a class="link" href="jdbc.html#jdbc-introduction" title="14.1&nbsp;Introduction to Spring Framework JDBC">JDBC</a>-추상 계층을 제공한다.
+그래서 지루한 JDBC 코딩과 데이터베이스 벤더에 따라 다른 오류코드를 파싱할 필요가 없다.</p>
+<p><code class="literal">spring-tx</code> 모듈은 특수한 인터페이스들을 구현하기 위한 클래스들과
+<span class="emphasis"><em>모든 당신의 POJO(Plain Old Java Objects)들 </em></span>을 대상으로 하는
+<a class="link" href="transaction.html" title="12.&nbsp;Transaction Management">프로그램적이고 선언적인 트랜잭션</a> 관리를 지원한다.</p>
+<p><code class="literal">spring-orm</code> 모듈은 <a class="link" href="orm.html#orm-jpa" title="15.5&nbsp;JPA">JPA</a>,
+<a class="link" href="orm.html#orm-jdo" title="15.4&nbsp;JDO">JDO</a>, and <a class="link" href="orm.html#orm-hibernate" title="15.3&nbsp;Hibernate">Hibernate</a>를 포함하는 인기 있는
+<a class="link" href="orm.html#orm-introduction" title="15.1&nbsp;Introduction to ORM with Spring">객체-관계 매핑</a> 
+API에 대한 통합 계층을 제공한다. ORM 패키지를 사용하면 이러한 O/R매핑 프레임워크들을 앞에서 언급했던 선언적 트랜젝션 관리 같은 스프링의 다른 기능들과 함께 사용할 수 있다.  <code class="literal">spring-orm</code> 모듈을 사용하면
+이전에 언급했던 선언적 트랜잭션 관리 기능과 같은 스프링이 제공하는 다른 기능들 모두와 조합해서
+이러한 O/R 매핑 프레임워크들 모두를 사용할 수 있다.</p>
+<p><code class="literal">spring-oxm</code>모듈은 JAXB, Castor, XMLBeans, JiBX and XStream와 같은 
+<a class="link" href="oxm.html" title="16.&nbsp;Marshalling XML using O/X Mappers">객체/XML 매핑</a> 구현체들을
+지원하는 추상 계층을 제공한다.</p>
+<p><code class="literal">spring-jms</code> 모듈(<a class="link" href="jms.html" title="24.&nbsp;JMS (Java Message Service)">자바 메세징 서비스</a>)은 메세지들을 생성하고 사용하는 기능들을 포함한다.
+스프링 프레임워크 4.1부터 <code class="literal">spring-messaging</code> 모듈과의 통합을 제공한다.</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="overview-web" href="#overview-web"></a>2.2.5&nbsp;웹</h3></div></div></div>
-<p>The <span class="emphasis"><em>Web</em></span> layer consists of the <code class="literal">spring-web</code>, <code class="literal">spring-webmvc</code>, <code class="literal">spring-websocket</code>, and
-<code class="literal">spring-webmvc-portlet</code> modules.</p>
-<p>The <code class="literal">spring-web</code> module provides basic web-oriented integration features such as
-multipart file upload functionality and the initialization of the IoC container using
-Servlet listeners and a web-oriented application context. It also contains an HTTP client
-and the web-related parts of Spring&#8217;s remoting support.</p>
-<p>The <code class="literal">spring-webmvc</code> module (also known as the <span class="emphasis"><em>Web-Servlet</em></span> module) contains Spring&#8217;s
-model-view-controller (<a class="link" href="mvc.html#mvc-introduction" title="17.1&nbsp;Introduction to Spring Web MVC framework"><span class="emphasis"><em>MVC</em></span></a>) and REST Web Services implementation
-for web applications. Spring&#8217;s MVC framework provides a clean separation between domain
-model code and web forms and integrates with all of the other features of the Spring
-Framework.</p>
-<p>The <code class="literal">spring-webmvc-portlet</code> module (also known as the <span class="emphasis"><em>Web-Portlet</em></span> module) provides
+<p><span class="emphasis"><em>웹</em></span> 계층은 <code class="literal">spring-web</code>,
+<code class="literal">spring-webmvc</code>, <code class="literal">spring-websocket</code>,
+<code class="literal">spring-webmvc-portlet</code>로 이루어졌다.</p>
+<p><code class="literal">spring-web</code> 모듈은 
+서블릿 리스너와 웹 지향적인 애플리케이션 컨텍스트를 사용하여
+멀티파트 파일 업로드 기능과  IoC 컨테이너의 초기화와 같은 기본적인 웹-지향적인 통합기능을 제공한다.
+또한, HTTP 클라이언트와 스프링의 리모팅 지원의 웹-관련 부분들을 포함한다.</p>
+<p><code class="literal">spring-webmvc</code> 모듈(또한 <span class="emphasis"><em>Web-Servlet</em></span> 모듈로
+알려져 있는)은 웹 어플리케이션을 위한 스프링의 모델-뷰-컨트롤러(<a class="link" href="mvc.html#mvc-introduction" title="17.1&nbsp;Introduction to Spring Web MVC framework"><span class="emphasis"><em>MVC</em></span></a>)와
+REST 웹 서비스들의 구현을 포함한다. 스프링의 MVC 프레임워크는 도메인 모델 코드와 웹폼 그리고 스프링 프레임워크의
+다른 기능들의 모든 통합들 간의 깔끔한 분리를 제공한다.</p>
+<p><code class="literal">spring-webmvc-portlet</code> 모듈(<span class="emphasis"><em>Web-Portlet</em></span> 모듈로 알려져 있는)은 제공한다.
+
+The <code class="literal">spring-webmvc-portlet</code> module (also known as the <span class="emphasis"><em>Web-Portlet</em></span> module) provides
 the MVC implementation to be used in a Portlet environment and mirrors the functionality
 of the <code class="literal">spring-webmvc</code> module.</p>
 </div>
