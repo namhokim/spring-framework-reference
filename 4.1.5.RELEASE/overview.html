@@ -2,8 +2,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>2.&nbsp;스프링 프레임워크 소개</title><link rel="stylesheet" type="text/css" href="css/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="스프링 프레임워크 레퍼런스 문서"><link rel="up" href="spring-introduction.html" title="Part&nbsp;I.&nbsp;스프링 프레임워크의 개요"><link rel="prev" href="overview-getting-started-with-spring.html" title="1.&nbsp;스프링 시작하기"><link rel="next" href="spring-whats-new.html" title="II부.&nbsp;스프링 프레임워크 4.x에 새로운 기능"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;스프링 프레임워크 소개</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview-getting-started-with-spring.html">이전</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;I.&nbsp;스프링 프레임워크의 개요</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="spring-whats-new.html">다음</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="overview" href="#overview"></a>2.&nbsp;스프링 프레임워크 소개</h2></div></div></div>
 <p>스프링 프레임워크는 자바 애플리케이션 개발을 위해 포괄적인 인프라 구조를 제공하는 자바 플랫폼이다. 스프링은 당신이 애플리케이션에 집중할 수 있도록 인프라 구조를 담당한다.</p>
-<p>스프링을 사용하면 "plain old Java objects"(POJOs)로 어플리케이션을 만들고 엔터프라이즈 서비스를 비침투적으로 POJO에 적용할 수 있다. 이 능력은 Java SE 프로그래밍에 적용되고 전제 혹은 부분적으로 Java EE에 적용된다.</p>
-<p>당신이 어플리케이션 개발자라고 가정할 때, 당신이 어떻게 스프링 플랫폼의 이점을 이용할 수 있는가에 대한 예제는 다음과 같다.</p>
+<p>스프링을 사용하면 "plain old Java objects"(POJOs)로 애플리케이션을 만들고 엔터프라이즈 서비스를 비침투적으로 POJO에 적용할 수 있다. 이 능력은 Java SE 프로그래밍에 적용되고 전제 혹은 부분적으로 Java EE에 적용된다.</p>
+<p>당신이 애플리케이션 개발자라고 가정할 때, 당신이 어떻게 스프링 플랫폼의 이점을 이용할 수 있는가에 대한 예제는 다음과 같다.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 트랜잭션 API를 사용하지 않고도 데이터베이스 트랜잭션에서 자바메서드를 실행하도록 만든다.
 </li><li class="listitem">
@@ -15,10 +15,10 @@ JMS API를 사용하지 않고도 로컬 자바메서드를 메시지 핸들러�
 </li></ul></div>
 <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="overview-dependency-injection" href="#overview-dependency-injection"></a>2.1&nbsp;의존성 주입(DI)과 제어 역전(IoC)</h2></div></div></div>
-<p>제약을 가진 임베디드 애플리케이션부터 n-티어의 서버사이드 엔터프라이즈 어플리케이션까지 전반적인 느슨하게 포함한
-자바 어플리케이션은 보통 어플리케이션에 적합한 형식으로 협력하는 객체로 이루어져 있다.
-그래서 어플리케이션의 객체들은 서로 <span class="emphasis"><em>의존성</em></span>을 가지고 있다.</p>
-<p>자바 플랫폼이 어플리케이션 개발에 관련된 풍부한 기능을 제공하더라도,
+<p>제약을 가진 임베디드 애플리케이션부터 n-티어의 서버사이드 엔터프라이즈 애플리케이션까지 전반적인 느슨하게 포함한
+자바 애플리케이션은 보통 애플리케이션에 적합한 형식으로 협력하는 객체로 이루어져 있다.
+그래서 애플리케이션의 객체들은 서로 <span class="emphasis"><em>의존성</em></span>을 가지고 있다.</p>
+<p>자바 플랫폼이 애플리케이션 개발에 관련된 풍부한 기능을 제공하더라도,
 기본적인 구성 요소들을 서로 밀착된 하나의 큰 구조로 만드는 기능은 부족하다.
 따라서 아키텍트와 개발자들이 이 작업을 해야 한다.
 비록, 애플리케이션을 개발시에 다양한 클래스들과 객체 인스턴스들을 구성하기 위해
@@ -31,8 +31,8 @@ JMS API를 사용하지 않고도 로컬 자바메서드를 메시지 핸들러�
 공식화된 좋은 사례들인 것이다.</p>
 <p>스프링 프레임워크의 <span class="emphasis"><em>제어의 역전</em></span> (IoC) 컴포넌트는 이러한 관심사에 접근한다.
 즉, 서로 다른 컴포넌트들을 사용할 준비가 된 완전히 동작하는 애플리케이션을 구성하는 형식적인 의미를 제공한다.
-스프링 프레임워크는 자신의 어플리케이션으로 통합할 수 있는 일급 클래스 객체들을 형식화된 디자인 패턴으로 만들었다.
-수많은 단체와 기관들은 신뢰할 수 있고 <span class="emphasis"><em>유지보수 가능한</em></span> 어플리케이션을 만들려고
+스프링 프레임워크는 자신의 애플리케이션으로 통합할 수 있는 일급 클래스 객체들을 형식화된 디자인 패턴으로 만들었다.
+수많은 단체와 기관들은 신뢰할 수 있고 <span class="emphasis"><em>유지보수 가능한</em></span> 애플리케이션을 만들려고
 이러한 방법으로 스프링 프레임워크를 사용한다.</p>
 <div class="sidebar"><a name="background-ioc" href="#background-ioc"></a><div class="titlepage"><div><div><p class="title"><b>배경지식</b></p></div></div></div>
 <p>"<span class="emphasis"><em>제어의 어떤 관점이 역전되었는가?</em></span>" 마틴 파울러(Martin Fowler)는
@@ -116,7 +116,7 @@ API에 대한 통합 계층을 제공한다. ORM 패키지를 사용하면 이�
 멀티파트 파일 업로드 기능과  IoC 컨테이너의 초기화와 같은 기본적인 웹-지향적인 통합기능을 제공한다.
 또한, HTTP 클라이언트와 스프링의 리모팅 지원의 웹-관련 부분들을 포함한다.</p>
 <p><code class="literal">spring-webmvc</code> 모듈(또한 <span class="emphasis"><em>Web-Servlet</em></span> 모듈로
-알려져 있는)은 웹 어플리케이션을 위한 스프링의 모델-뷰-컨트롤러(<a class="link" href="mvc.html#mvc-introduction" title="17.1&nbsp;Introduction to Spring Web MVC framework"><span class="emphasis"><em>MVC</em></span></a>)와
+알려져 있는)은 웹 애플리케이션을 위한 스프링의 모델-뷰-컨트롤러(<a class="link" href="mvc.html#mvc-introduction" title="17.1&nbsp;Introduction to Spring Web MVC framework"><span class="emphasis"><em>MVC</em></span></a>)와
 REST 웹 서비스들의 구현을 포함한다. 스프링의 MVC 프레임워크는 도메인 모델 코드와 웹폼 그리고 스프링 프레임워크의
 다른 기능들의 모든 통합들 간의 깔끔한 분리를 제공한다.</p>
 <p><code class="literal">spring-webmvc-portlet</code> 모듈(<span class="emphasis"><em>Web-Portlet</em></span> 모듈로 알려져 있는)은 Portlet 환경과 <code class="literal">spring-webmvc</code> 모듈의 기능을 사용할 수 있는
@@ -137,11 +137,11 @@ MVC 구현체을 제공한다.</p>
 '스프링의 트랜잭션 관리 기능 및 웹 프레임워크 통합을 사용하는 일정 규모를 갖춘 엔터프라이즈 에플리케이션'까지
 많은 시나리오 상황이 있을 수 있다.
 이번 절에서는 이러한 많은 시나리오 상황에서 스프링의 논리적인 선택에 미리 도움이 되는 내용을 다룬다.</p>
-<div class="figure"><a name="d5e317" href="#d5e317"></a><p class="title"><b>그림&nbsp;2.2.&nbsp;완전한 형태의 전형적인 스프링 웹 어플리케이션</b></p><div class="figure-contents">
+<div class="figure"><a name="d5e317" href="#d5e317"></a><p class="title"><b>그림&nbsp;2.2.&nbsp;완전한 형태의 전형적인 스프링 웹 애플리케이션</b></p><div class="figure-contents">
 <div class="mediaobject"><img src="images/overview-full.png" alt="overview full"></div>
 </div></div><br class="figure-break">
 <p>스프링의 <a class="link" href="transaction.html#transaction-declarative" title="12.5&nbsp;Declarative transaction management">선언적 트랜잭션 관리 기능</a>은
-여러분이 EJB 컨테이너가 관리해주는 트랜잭션을 사용하는 것 처럼, 웹 어플리케이션이 완전한 트랙잭션 기능을 가지게 해준다.
+여러분이 EJB 컨테이너가 관리해주는 트랜잭션을 사용하는 것 처럼, 웹 애플리케이션이 완전한 트랙잭션 기능을 가지게 해준다.
 모든 커스텀 비즈니스 로직은 간단한 POJO로 구현할 수 있고 스프링의 IoC 컨테이너로 관리할 수 있다.
 또한, 부가 서비스들을 위한 지원을 포함하는데, 이메일을 보내거나  특정 지점의 유효성 확인 규칙들을 당신이 웹 계층에 독립적으로 선택하게 할 수 있는 유효성 검증 같은 서비스를 말한다.
 스프링의 ORM 지원은 JPA, Hibernate, JDO, iBatis와 통합되었다. 가령 당신이 하이버네이트를 사용한다면,
@@ -165,7 +165,7 @@ Struts나 Tapestry, JSF, 다른 UI 프레임워크들로 프론트-엔트가 존
 <p>이미 존재하는 코드에 웹서비스로 접근할 필요가 있다면,
 스프링의 <code class="literal">Hessian-</code>, <code class="literal">Burlap-</code>, <code class="literal">Rmi-</code>, 
 <code class="literal">JaxRpcProxyFactory</code> 클래스를 사용할 수 있다.
-존재하는 어플리케이션으로의 원격접근을 허용하는 것은 어렵지 않다.</p>
+존재하는 애플리케이션으로의 원격접근을 허용하는 것은 어렵지 않다.</p>
 <div class="figure"><a name="d5e352" href="#d5e352"></a><p class="title"><b>그림&nbsp;2.5.&nbsp;EJB - 존재하는 POJO들의 랩핑(Wrapping)</b></p><div class="figure-contents">
 <div class="mediaobject"><img src="images/overview-ejb.png" alt="overview ejb"></div>
 </div></div><br class="figure-break">
@@ -175,17 +175,17 @@ Struts나 Tapestry, JSF, 다른 UI 프레임워크들로 프론트-엔트가 존
 선언적인 보안이 요구되는, 확장성 있고 안전장치를 갖춘 웹 애플리케이션이 된다.</p>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="dependency-management" href="#dependency-management"></a>2.3.1&nbsp;의존성 관리와 네이밍 컨벤션들</h3></div></div></div>
 <p>의존성 관리과 의존성 주입은 다르다.
-의존성 주입 같은 스프링의 멋진 기능들을 어플리케이션에서 사용하려면
+의존성 주입 같은 스프링의 멋진 기능들을 애플리케이션에서 사용하려면
 런타임시에 필요한 모든 jar 라이브러리들을 클래스 패스에 그것들을 위치해놓아야 할 것이며,
 또는 컴파일 시점에 두어야 할 필요도 있다.
 이런 의존성들은 주입되는 가상 컴포넌트가 아니라 (전통적으로) 파일시스템에 존재하는 물리적 리소스이다.
 의존성 관리의 프로세스는 이러한 리소스를 필요한 위치에 두고 저장하고 클래스 패스에 추가하는 작업이 포함한다.
-의존성은 직접적(예. 런타임시에 스프링에 의존하는 어플리케이션)일 수도 있고
-간접적(예. <code class="literal">commons-pool</code>기반의 <code class="literal">commons-dbcp</code>에 의존하는 어플리케이션)일 수도 있다.
+의존성은 직접적(예. 런타임시에 스프링에 의존하는 애플리케이션)일 수도 있고
+간접적(예. <code class="literal">commons-pool</code>기반의 <code class="literal">commons-dbcp</code>에 의존하는 애플리케이션)일 수도 있다.
 간접적인 의존성은 보통 과도기적(transitive)이라고 부르기도 하는데, 이러한 의존성은 구별하고 관리하기가 몹시 어렵다.</p>
 <p>스프링을 사용할 계획이라면 필요한 스프링 일부를 포함하는 jar 라이브러리의 복사본이 필요하다
 스프링은 의존성이 최대한 분리되도록 모듈이 패키징되어 있으므로 이 작업을 쉽게 할 수 있다.
-그래서 예를 들어 웹 어플리케이션을 작성할 것이 아니라면 스프링-웹 모듈은 필요 없다. 이 가이드의 스프링 라이브러리 모듈을 참조하기 위해 <code class="literal">spring-*</code>나 <code class="literal">spring-*.jar,</code>같은 짧은 작명 컨벤션을 사용한다. <code class="literal">*</code>은 모듈의 약칭을 의미한다 (예. <code class="literal">spring-core</code>,
+그래서 예를 들어 웹 애플리케이션을 작성할 것이 아니라면 스프링-웹 모듈은 필요 없다. 이 가이드의 스프링 라이브러리 모듈을 참조하기 위해 <code class="literal">spring-*</code>나 <code class="literal">spring-*.jar,</code>같은 짧은 작명 컨벤션을 사용한다. <code class="literal">*</code>은 모듈의 약칭을 의미한다 (예. <code class="literal">spring-core</code>,
 <code class="literal">spring-webmvc</code>, <code class="literal">spring-jms</code> 등등).
 실제 jar 파일명은 보통 파일명에 버전번호가 포함되어 있다
 (예. <span class="emphasis"><em>spring-core-4.1.6.RELEASE.jar</em></span>).</p>
@@ -228,8 +228,8 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
 </div>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-maven-dependency-management" href="#overview-maven-dependency-management"></a>Maven 의존성 관리</h4></div></div></div>
 <p><a class="ulink" href="http://maven.apache.org/" target="_top">Maven</a>으로 의존성을 관리한다면
-로깅 의존성을 명시할 필요도 없다. 예를 들어 어플리케이션 컨텍스트을 생성하고
-어플리케이션 설정에 의존성 주입을 사용하려면 Maven 의존성은 다음과 같을 것이다.</p>
+로깅 의존성을 명시할 필요도 없다. 예를 들어 애플리케이션 컨텍스트을 생성하고
+애플리케이션 설정에 의존성 주입을 사용하려면 Maven 의존성은 다음과 같을 것이다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;dependencies&gt;</span>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
