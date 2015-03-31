@@ -188,7 +188,7 @@ Struts나 Tapestry, JSF, 다른 UI 프레임워크들로 프론트-엔트가 존
 그래서 예를 들어 웹 애플리케이션을 작성할 것이 아니라면 스프링-웹 모듈은 필요 없다. 이 가이드의 스프링 라이브러리 모듈을 참조하기 위해 <code class="literal">spring-*</code>나 <code class="literal">spring-*.jar,</code>같은 짧은 작명 컨벤션을 사용한다. <code class="literal">*</code>은 모듈의 약칭을 의미한다 (예. <code class="literal">spring-core</code>,
 <code class="literal">spring-webmvc</code>, <code class="literal">spring-jms</code> 등등).
 실제 jar 파일명은 보통 파일명에 버전번호가 포함되어 있다
-(예. <span class="emphasis"><em>spring-core-4.1.5.RELEASE.jar</em></span>).</p>
+(예. <span class="emphasis"><em>spring-core-4.1.6.RELEASE.jar</em></span>).</p>
 <p>각 스프링 프레임워크의 배포판은 다음 위치에 아티팩트들이 릴리즈 된다.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 메이븐 센트럴(Maven Central).
@@ -234,7 +234,7 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-context<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;scope&gt;</span>runtime<span class="hl-tag">&lt;/scope&gt;</span>
     <span class="hl-tag">&lt;/dependency&gt;</span>
 <span class="hl-tag">&lt;/dependencies&gt;</span></pre>
@@ -281,7 +281,7 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
         <span class="hl-tag">&lt;dependency&gt;</span>
             <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
             <span class="hl-tag">&lt;artifactId&gt;</span>spring-framework-bom<span class="hl-tag">&lt;/artifactId&gt;</span>
-            <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+            <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
             <span class="hl-tag">&lt;type&gt;</span>pom<span class="hl-tag">&lt;/type&gt;</span>
             <span class="hl-tag">&lt;scope&gt;</span>import<span class="hl-tag">&lt;/scope&gt;</span>
         <span class="hl-tag">&lt;/dependency&gt;</span>
@@ -312,8 +312,8 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
 <code class="literal">/milestone</code>이나 <code class="literal">/snapshot</code> 로 바꿀 수 있다.
 일단 저장소가 설정이 되면, 보통의 Gradle 방식으로 의존성들을 선언할 수 있다.</p>
 <pre class="programlisting">dependencies {
-    compile("org.springframework:spring-context:4.1.5.RELEASE")
-    testCompile("org.springframework:spring-test:4.1.5.RELEASE")
+    compile("org.springframework:spring-context:4.1.6.RELEASE")
+    testCompile("org.springframework:spring-test:4.1.6.RELEASE")
 }</pre>
 </div>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-ivy-dependency-management" href="#overview-ivy-dependency-management"></a>Ivy 의존성 관리</h4></div></div></div>
@@ -331,7 +331,7 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
 <p>일단 설정을 하고나면, 보통 하는 방법대로 의존성들을 추가할 수 있다.
 다음은 하나의 예이다(<code class="literal">ivy.xml</code>).</p>
 <pre class="programlisting"><span class="hl-tag">&lt;dependency</span> <span class="hl-attribute">org</span>=<span class="hl-value">"org.springframework"</span>
-    <span class="hl-attribute">name</span>=<span class="hl-value">"spring-core"</span> <span class="hl-attribute">rev</span>=<span class="hl-value">"4.1.5.RELEASE"</span> <span class="hl-attribute">conf</span>=<span class="hl-value">"compile-&gt;runtime"</span><span class="hl-tag">/&gt;</span></pre>
+    <span class="hl-attribute">name</span>=<span class="hl-value">"spring-core"</span> <span class="hl-attribute">rev</span>=<span class="hl-value">"4.1.6.RELEASE"</span> <span class="hl-attribute">conf</span>=<span class="hl-value">"compile-&gt;runtime"</span><span class="hl-tag">/&gt;</span></pre>
 </div>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="overview-distribution-zip" href="#overview-distribution-zip"></a>Zip 파일들의 배포</h4></div></div></div>
 <p>비록 추천하는 스프링 프레임워크를 획득하는 방법이 의존성 관리의 지원을 받는 빌드 시스템을 사용하는 것이지만,
@@ -341,7 +341,7 @@ jar 파일명은 Maven Central에서는 동일한 형식을 가지기 때문에,
 <p>패포판 zip을 다운로드 받기위해서 웹 브라우저를 <a class="ulink" href="http://repo.spring.io/release/org/springframework/spring" target="_top">http://repo.spring.io/release/org/springframework/spring</a>로 이동하고,
 적절한 원하는 버전의 서브폴더를 선택한다.
 배포 파일들은 <code class="literal">-dist.zip</code>로 끝난다.
-예를 들면, <code class="literal">spring-framework-4.1.5.RELEASE-RELEASE-dist.zip</code>와 같다.
+예를 들면, <code class="literal">spring-framework-4.1.6.RELEASE-RELEASE-dist.zip</code>와 같다.
 배포판들은 <a class="ulink" href="http://repo.spring.io/milestone/org/springframework/spring" target="_top">milestones</a>과
 <a class="ulink" href="http://repo.spring.io/snapshot/org/springframework/spring" target="_top">snapshots</a>버전도 있다.</p>
 </div>
@@ -382,7 +382,7 @@ Maven을 예를 들면, <code class="literal">commons-logging</code>에 대한 �
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;exclusions&gt;</span>
             <span class="hl-tag">&lt;exclusion&gt;</span>
                 <span class="hl-tag">&lt;groupId&gt;</span>commons-logging<span class="hl-tag">&lt;/groupId&gt;</span>
@@ -415,7 +415,7 @@ Maven이라면 다음과 같이 추가한다.</p>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
         <span class="hl-tag">&lt;exclusions&gt;</span>
             <span class="hl-tag">&lt;exclusion&gt;</span>
                 <span class="hl-tag">&lt;groupId&gt;</span>commons-logging<span class="hl-tag">&lt;/groupId&gt;</span>
@@ -467,7 +467,7 @@ Log4j는 사용하기 편하고 잘 구성되어 있다. 사실 스프링을 만
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>org.springframework<span class="hl-tag">&lt;/groupId&gt;</span>
         <span class="hl-tag">&lt;artifactId&gt;</span>spring-core<span class="hl-tag">&lt;/artifactId&gt;</span>
-        <span class="hl-tag">&lt;version&gt;</span>4.1.5.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
+        <span class="hl-tag">&lt;version&gt;</span>4.1.6.RELEASE<span class="hl-tag">&lt;/version&gt;</span>
     <span class="hl-tag">&lt;/dependency&gt;</span>
     <span class="hl-tag">&lt;dependency&gt;</span>
         <span class="hl-tag">&lt;groupId&gt;</span>log4j<span class="hl-tag">&lt;/groupId&gt;</span>
