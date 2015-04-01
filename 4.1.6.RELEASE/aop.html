@@ -1,6 +1,6 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>9.&nbsp;Aspect Oriented Programming with Spring</title><link rel="stylesheet" type="text/css" href="css/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="스프링 프레임워크 레퍼런스 문서"><link rel="up" href="spring-core.html" title="Part&nbsp;III.&nbsp;Core Technologies"><link rel="prev" href="expressions.html" title="8.&nbsp;Spring Expression Language (SpEL)"><link rel="next" href="aop-api.html" title="10.&nbsp;Spring AOP APIs"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">9.&nbsp;Aspect Oriented Programming with Spring</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="expressions.html">이전</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;III.&nbsp;Core Technologies</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="aop-api.html">다음</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="aop" href="#aop"></a>9.&nbsp;Aspect Oriented Programming with Spring</h2></div></div></div>
+<title>9.&nbsp;스프링의 관점 지향 프로그래밍(AOP)</title><link rel="stylesheet" type="text/css" href="css/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="스프링 프레임워크 레퍼런스 문서"><link rel="up" href="spring-core.html" title="III부.&nbsp;핵심 기술들"><link rel="prev" href="expressions.html" title="8.&nbsp;스프링 표현식 언어 (SpEL)"><link rel="next" href="aop-api.html" title="10.&nbsp;스프링 AOP API들"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">9.&nbsp;스프링의 관점 지향 프로그래밍(AOP)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="expressions.html">이전</a>&nbsp;</td><th width="60%" align="center">III부.&nbsp;핵심 기술들</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="aop-api.html">다음</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="aop" href="#aop"></a>9.&nbsp;스프링의 관점 지향 프로그래밍(AOP)</h2></div></div></div>
 <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="aop-introduction" href="#aop-introduction"></a>9.1&nbsp;Introduction</h2></div></div></div>
 <p><span class="emphasis"><em>Aspect-Oriented Programming</em></span> (AOP) complements Object-Oriented Programming (OOP) by
 providing another way of thinking about program structure. The key unit of modularity in
@@ -18,7 +18,7 @@ style</a>. Both of these styles offer fully typed advice and use of the AspectJ 
 language, while still using Spring AOP for weaving.</p>
 <p>The Spring 2.0 schema- and @AspectJ-based AOP support is discussed in this chapter.
 Spring 2.0 AOP remains fully backwards compatible with Spring 1.2 AOP, and the
-lower-level AOP support offered by the Spring 1.2 APIs is discussed in <a class="link" href="aop-api.html" title="10.&nbsp;Spring AOP APIs">the
+lower-level AOP support offered by the Spring 1.2 APIs is discussed in <a class="link" href="aop-api.html" title="10.&nbsp;스프링 AOP API들">the
 following chapter</a>.</p>
 </div>
 <p>AOP is used in the Spring Framework to&#8230;</p>
@@ -143,7 +143,7 @@ frameworks such as AspectJ are valuable, and that they are complementary, rather
 competition. Spring seamlessly integrates Spring AOP and IoC with AspectJ, to enable
 all uses of AOP to be catered for within a consistent Spring-based application
 architecture. This integration does not affect the Spring AOP API or the AOP Alliance
-API: Spring AOP remains backward-compatible. See <a class="link" href="aop-api.html" title="10.&nbsp;Spring AOP APIs">the following chapter</a> for a
+API: Spring AOP remains backward-compatible. See <a class="link" href="aop-api.html" title="10.&nbsp;스프링 AOP API들">the following chapter</a> for a
 discussion of the Spring AOP APIs.</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
 <p>One of the central tenets of the Spring Framework is that of <span class="emphasis"><em>non-invasiveness</em></span>; this
@@ -2556,6 +2556,6 @@ comprehensive introduction and reference for the AspectJ language.</p>
 recommended; the focus of the book is on AspectJ, but a lot of general AOP themes are
 explored (in some depth).</p>
 </div>
-</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="expressions.html">이전</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="spring-core.html">위로</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="aop-api.html">다음</a></td></tr><tr><td width="40%" align="left" valign="top">8.&nbsp;Spring Expression Language (SpEL)&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">홈</a></td><td width="40%" align="right" valign="top">&nbsp;10.&nbsp;Spring AOP APIs</td></tr></table></div> 
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="expressions.html">이전</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="spring-core.html">위로</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="aop-api.html">다음</a></td></tr><tr><td width="40%" align="left" valign="top">8.&nbsp;스프링 표현식 언어 (SpEL)&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">홈</a></td><td width="40%" align="right" valign="top">&nbsp;10.&nbsp;스프링 AOP API들</td></tr></table></div> 
 </body>
 </html>
