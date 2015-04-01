@@ -163,6 +163,12 @@ III부.&nbsp;핵심 기술들
 ">Chapter&nbsp;5, <i>The IoC container</i></a>
 ">5장, <i>IoC 컨테이너</i></a>
 
+5.1. Introduction to the Spring IoC container and beans</a></span>
+5.1. Spring IoC 컨테이너와 빈즈(beans)의 소개</a></span>
+
+5.2. Container overview</a></span>
+5.2. 컨테이너 개요</a></span>
+
 ">Chapter&nbsp;6, <i>Resources</i></a>
 ">6장, <i>리소스들</i></a>
 
