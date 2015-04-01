@@ -1,67 +1,61 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>5.&nbsp;IoC 컨테이너</title><link rel="stylesheet" type="text/css" href="css/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="스프링 프레임워크 레퍼런스 문서"><link rel="up" href="spring-core.html" title="III부.&nbsp;핵심 기술들"><link rel="prev" href="spring-core.html" title="III부.&nbsp;핵심 기술들"><link rel="next" href="resources.html" title="6.&nbsp;리소스들"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.&nbsp;IoC 컨테이너</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spring-core.html">이전</a>&nbsp;</td><th width="60%" align="center">III부.&nbsp;핵심 기술들</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="resources.html">다음</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="beans" href="#beans"></a>5.&nbsp;IoC 컨테이너</h2></div></div></div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-introduction" href="#beans-introduction"></a>5.1&nbsp;Introduction to the Spring IoC container and beans</h2></div></div></div>
-<p>This chapter covers the Spring Framework implementation of the Inversion of Control
-(IoC) <a href="#ftn.d5e1120" class="footnote" name="d5e1120"><sup class="footnote">[1]</sup></a> principle. IoC
-is also known as <span class="emphasis"><em>dependency injection</em></span> (DI). It is a process whereby objects define
-their dependencies, that is, the other objects they work with, only through constructor
-arguments, arguments to a factory method, or properties that are set on the object
-instance after it is constructed or returned from a factory method. The container then
-<span class="emphasis"><em>injects</em></span> those dependencies when it creates the bean. This process is fundamentally
-the inverse, hence the name <span class="emphasis"><em>Inversion of Control</em></span> (IoC), of the bean itself
-controlling the instantiation or location of its dependencies by using direct
-construction of classes, or a mechanism such as the <span class="emphasis"><em>Service Locator</em></span> pattern.</p>
-<p>The <code class="literal">org.springframework.beans</code> and <code class="literal">org.springframework.context</code> packages are the basis
-for Spring Framework&#8217;s IoC container. The
-<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html" target="_top"><code class="literal">BeanFactory</code></a>
-interface provides an advanced configuration mechanism capable of managing any type of
-object.
-<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html" target="_top"><code class="literal">ApplicationContext</code></a>
-is a sub-interface of <code class="literal">BeanFactory</code>. It adds easier integration with Spring&#8217;s AOP
-features; message resource handling (for use in internationalization), event
-publication; and application-layer specific contexts such as the <code class="literal">WebApplicationContext</code>
-for use in web applications.</p>
-<p>In short, the <code class="literal">BeanFactory</code> provides the configuration framework and basic
-functionality, and the <code class="literal">ApplicationContext</code> adds more enterprise-specific functionality.
-The <code class="literal">ApplicationContext</code> is a complete superset of the <code class="literal">BeanFactory</code>, and is used
-exclusively in this chapter in descriptions of Spring&#8217;s IoC container. For more
-information on using the <code class="literal">BeanFactory</code> instead of the <code class="literal">ApplicationContext,</code> refer to
-<a class="xref" href="beans.html#beans-beanfactory" title="5.16&nbsp;The BeanFactory">Section&nbsp;5.16, &#8220;The BeanFactory&#8221;</a>.</p>
-<p>In Spring, the objects that form the backbone of your application and that are managed
-by the Spring IoC <span class="emphasis"><em>container</em></span> are called <span class="emphasis"><em>beans</em></span>. A bean is an object that is
-instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a
-bean is simply one of many objects in your application. Beans, and the <span class="emphasis"><em>dependencies</em></span>
-among them, are reflected in the <span class="emphasis"><em>configuration metadata</em></span> used by a container.</p>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-introduction" href="#beans-introduction"></a>5.1&nbsp;Spring IoC 컨테이너와 빈즈(beans)의 소개</h2></div></div></div>
+<p>이번 장은 제어의 역전 (IoC) <a href="#ftn.d5e1120" class="footnote" name="d5e1120">
+<sup class="footnote">[1]</sup></a>원리에 대한 스프링 프레임워크의 구현체에 대해 설명한다.
+IoC는 <span class="emphasis"><em>의존성 주입</em></span> (DI) 으로도 알려져 있다.
+이는 객체가 함께 동작해야 하는 의존성을 정의하는 처리 과정이다.
+IoC는 생성자의 인자나 팩토리 메서드의 인자 또는 객체 인스턴스 후에 설정된 프로퍼티나
+팩토리 메서드에서 리턴받은 값으로 정의한다.
+그 다음 컨테이너는 빈이 생성될 때 의존성을 <span class="emphasis"><em>주입</em></span>한다.
+이 처리 과정은 빈 스스로 인스턴스화 하는 과정을 제어하거나
+직접 클래스의 생성자를 사용해서 의존성을 정의하거나
+또는 <span class="emphasis"><em>서비스 로케이터</em></span> 패턴 같은 메커니즘과 근본적으로 정반대이므로
+<span class="emphasis"><em>제어의 역전</em></span> (IoC)이라고 이름 붙였다.</p>
+<p><code class="literal">org.springframework.beans</code>와
+<code class="literal">org.springframework.context</code> 패키지는 스프링 프레임워크 IoC 컨테이너의 기반이다.
+<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/BeanFactory.html" target="_top"><code class="literal">BeanFactory</code></a> 인터페이스는
+어떤 타입의 객체도 다룰 수 있는 향상된 설정 메커니즘을 제공한다.
+<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html" target="_top"><code class="literal">ApplicationContext</code></a>는 BeanFactory의 서브 인터페이스이다.
+ApplicationContext는 스프링의 AOP기능, 메시지 리소스 핸들링 (국제화(i18n)를 사용하려고),
+이벤트 발생, 웹 애플리케이션의 <code class="literal">WebApplicationContext</code>같은
+애플리케이션 계층에서 지정한 컨텍스트와 더 쉽게 통합할 수 있게 한다.</p>
+<p>간단히 말하면, <code class="literal">BeanFactory</code>는 설정 프레임워크와 기본적인 기능을 제공하고
+<code class="literal">ApplicationContext</code>는 에 엔터프라이즈급에 가까운 기능을 추가한다.
+<code class="literal">ApplicationContext</code>는 <code class="literal">BeanFactory</code>의 상위집합이고,
+이번 장에서는 전적으로 스프링 IoC 컨테이너를 설명하는 데만 사용한다.
+<code class="literal">ApplicationContext,</code> 대신 <code class="literal">BeanFactory</code>를
+사용하는 방법에 대해 더 자세한 내용을 알고 싶다면
+<a class="xref" href="beans.html#beans-beanfactory" title="5.16&nbsp;The BeanFactory">Section&nbsp;5.16, &#8220;The BeanFactory&#8221;</a>를 참고하여라.</p>
+<p>스프링에서 애플리케이션의 중추가 되고 스프링 IoC <span class="emphasis"><em>컨테이너</em></span>가
+관리하는 객체를 빈(bean)이라고 부른다. 빈은 인스턴스화 되고 결집한 객체로 스프링 IoC 컨테이너가 관리한다.
+빈은 애플리케이션에서 수많은 객체 중 하나일 뿐이다.
+컨테이너가 사용한 <span class="emphasis"><em>설정 메타데이터</em></span>는 빈과 빈 사이의 <span class="emphasis"><em>의존성</em></span>에 반영된다.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-basics" href="#beans-basics"></a>5.2&nbsp;Container overview</h2></div></div></div>
-<p>The interface <code class="literal">org.springframework.context.ApplicationContext</code> represents the Spring IoC
-container and is responsible for instantiating, configuring, and assembling the
-aforementioned beans. The container gets its instructions on what objects to
-instantiate, configure, and assemble by reading configuration metadata. The
-configuration metadata is represented in XML, Java annotations, or Java code. It allows
-you to express the objects that compose your application and the rich interdependencies
-between such objects.</p>
-<p>Several implementations of the <code class="literal">ApplicationContext</code> interface are supplied
-out-of-the-box with Spring. In standalone applications it is common to create an
-instance of
-<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html" target="_top"><code class="literal">ClassPathXmlApplicationContext</code></a>
-or <a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html" target="_top"><code class="literal">FileSystemXmlApplicationContext</code></a>.
-While XML has been the traditional format for defining configuration metadata you can
-instruct the container to use Java annotations or code as the metadata format by
-providing a small amount of XML configuration to declaratively enable support for these
-additional metadata formats.</p>
-<p>In most application scenarios, explicit user code is not required to instantiate one or
-more instances of a Spring IoC container. For example, in a web application scenario, a
-simple eight (or so) lines of boilerplate web descriptor XML in the <code class="literal">web.xml</code> file
-of the application will typically suffice (see <a class="xref" href="beans.html#context-create" title="5.15.4&nbsp;Convenient ApplicationContext instantiation for web applications">Section&nbsp;5.15.4, &#8220;Convenient ApplicationContext instantiation for web applications&#8221;</a>). If you are using the
-<a class="ulink" href="https://spring.io/tools/sts" target="_top">Spring Tool Suite</a> Eclipse-powered development
-environment this boilerplate configuration can be easily created with few mouse clicks or
-keystrokes.</p>
-<p>The following diagram is a high-level view of how Spring works. Your application classes
-are combined with configuration metadata so that after the <code class="literal">ApplicationContext</code> is
-created and initialized, you have a fully configured and executable system or
-application.</p>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-basics" href="#beans-basics"></a>5.2&nbsp;컨테이너 개요</h2></div></div></div>
+<p><code class="literal">org.springframework.context.ApplicationContext</code> 인터페이스는
+스프링 IoC 컨테이너를 나타내며 앞에서 언급한 빈을 인스턴스화하고 설정하고 조합하는 데 책임이 있다.
+컨테이너는 어떤 객체를 인스턴스로 만들고 설정하고 조합해야 하는지를 설정 메타데이터에서 알아낸다.
+설정 메타데이터는 XML이나 자바 어노테이션, 자바 코드로 나타낸다. 설정 메타데이터는 애플리케이션을
+구성하는 객체들을 나타내고 그러한 객체들 사이의 풍부한 상호 의존성을 나타낸다.</p>
+<p><code class="literal">ApplicationContext</code> 인터페이스의 다양한 구현체는
+스프링 밖에서 제공된다. 단독 애플리케이션에서는 일반적으로
+<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html" target="_top"><code class="literal">ClassPathXmlApplicationContext</code></a>나
+<a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html" target="_top"><code class="literal">FileSystemXmlApplicationContext</code></a>의
+인스턴스를 생성한다. XML이 설정 메타데이터를 정의하는 보편적인 포맷이 되었지만,
+자바 어노테이션이나 메타데이터 형식의 코드로 컨테이너에 설정을 알려줄 수 있다.
+이러한 추가적인 메타데이터 포맷을 선언적으로 지원하도록 하는 소량의 XML 설정만 제공하면 된다.</p>
+<p>대부분의 애플리케이션 시나리오에서 스프링 IoC 컨테이너의 인스턴스를 만드는
+명시적인 사용자 코드는 필요하지 않다. 예를 들어 웹 애플리케이션 시나리오에서
+애플리케이션의 표준 웹 서술 XML인 <code class="literal">web.xml</code>파일의
+대략 8줄 정도의 문장으로 보통 충분할 것이다
+(<a class="xref" href="beans.html#context-create" title="5.15.4&nbsp;Convenient ApplicationContext instantiation for web applications">5.15.4&nbsp;섹션, &#8220;웹 애플리케이션을 위한 편리한 ApplicationContext 초기화&#8221;</a> 참고).
+이클립스 기반의 개발환경인 <a class="ulink" href="https://spring.io/tools/sts" target="_top">Spring Tool Suite</a>는
+이러한 기반 코드 설정을 몇 번의 마우스 클릭이나 카보드 입력만으로도 생성할 수 있다.</p>
+<p>다음 다이어그램은 스프링이 어떻게 어떻게 동작하는지 보여준다. 애플리케이션의 클래스들은
+설정 메타 데이터와 결합한다. 그래서 <code class="literal">ApplicationContext</code>이 생성되고 인스턴스화 되면
+완전히 설정이 완료되고 실행가능한 시스템이나 애플리케이션이 준비된다.</p>
 <div class="figure"><a name="d5e1165" href="#d5e1165"></a><p class="title"><b>Figure&nbsp;5.1.&nbsp;The Spring IoC container</b></p><div class="figure-contents">
 <div class="mediaobject"><img src="images/container-magic.png" alt="container magic"></div>
 </div></div><br class="figure-break">
