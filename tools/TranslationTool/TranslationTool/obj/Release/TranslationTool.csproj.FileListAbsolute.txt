@@ -1,8 +1,0 @@
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\bin\Release\TranslationTool.exe
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\bin\Release\TranslationTool.pdb
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\ResolveAssemblyReference.cache
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\TranslationTool.MainForm.resources
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\TranslationTool.Properties.Resources.resources
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\TranslationTool.csproj.GenerateResource.Cache
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\TranslationTool.exe
-C:\Users\namo\Desktop\spring-framework-reference\tools\TranslationTool\TranslationTool\obj\Release\TranslationTool.pdb
