@@ -1,0 +1,4 @@
+# a comment - this is ignored
+*.suo
+TranslationTool/bin/*
+TranslationTool/obj/*
