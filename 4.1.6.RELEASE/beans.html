@@ -27,7 +27,7 @@ ApplicationContext는 스프링의 AOP기능, 메시지 리소스 핸들링 (국
 이번 장에서는 전적으로 스프링 IoC 컨테이너를 설명하는 데만 사용한다.
 <code class="literal">ApplicationContext,</code> 대신 <code class="literal">BeanFactory</code>를
 사용하는 방법에 대해 더 자세한 내용을 알고 싶다면
-<a class="xref" href="beans.html#beans-beanfactory" title="5.16&nbsp;The BeanFactory">Section&nbsp;5.16, &#8220;The BeanFactory&#8221;</a>를 참고하여라.</p>
+<a class="xref" href="beans.html#beans-beanfactory" title="5.16&nbsp;The BeanFactory">5.16절, &#8220;The BeanFactory&#8221;</a>를 참고하여라.</p>
 <p>스프링에서 애플리케이션의 중추가 되고 스프링 IoC <span class="emphasis"><em>컨테이너</em></span>가
 관리하는 객체를 빈(bean)이라고 부른다. 빈은 인스턴스화 되고 결집한 객체로 스프링 IoC 컨테이너가 관리한다.
 빈은 애플리케이션에서 수많은 객체 중 하나일 뿐이다.
@@ -56,48 +56,45 @@ ApplicationContext는 스프링의 AOP기능, 메시지 리소스 핸들링 (국
 <p>다음 다이어그램은 스프링이 어떻게 어떻게 동작하는지 보여준다. 애플리케이션의 클래스들은
 설정 메타 데이터와 결합한다. 그래서 <code class="literal">ApplicationContext</code>이 생성되고 인스턴스화 되면
 완전히 설정이 완료되고 실행가능한 시스템이나 애플리케이션이 준비된다.</p>
-<div class="figure"><a name="d5e1165" href="#d5e1165"></a><p class="title"><b>Figure&nbsp;5.1.&nbsp;The Spring IoC container</b></p><div class="figure-contents">
+<div class="figure"><a name="d5e1165" href="#d5e1165"></a><p class="title"><b>그림&nbsp;5.1.&nbsp;Spring IoC 컨테이너</b></p><div class="figure-contents">
 <div class="mediaobject"><img src="images/container-magic.png" alt="container magic"></div>
 </div></div><br class="figure-break">
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-metadata" href="#beans-factory-metadata"></a>5.2.1&nbsp;Configuration metadata</h3></div></div></div>
-<p>As the preceding diagram shows, the Spring IoC container consumes a form of
-<span class="emphasis"><em>configuration metadata</em></span>; this configuration metadata represents how you as an
-application developer tell the Spring container to instantiate, configure, and assemble
-the objects in your application.</p>
-<p>Configuration metadata is traditionally supplied in a simple and intuitive XML format,
-which is what most of this chapter uses to convey key concepts and features of the
-Spring IoC container.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-metadata" href="#beans-factory-metadata"></a>5.2.1&nbsp;설정 메타데이터(Configuration metadata)</h3></div></div></div>
+<p>앞의 다이어그램에서 봤듯이 스프링 IoC 컨테이너는 <span class="emphasis"><em>설정 메타데이터</em></span> 형식을 
+받아들인다. 이 설정 메타데이터를 통해 어플리케이션 개발자는 스프링 컨테이너가 어플리케이션의 객체를 어떻게 인스턴스화하고 설정하고 조합해야 하는지 지시할 수 있다.</p>
+<p>설정 메타데이터는 전통적으로 간단하고 직관적인 XML 포맷을 사용한다.
+이번 장에서도 스프링 IoC 컨테이너의 핵심 개념과 기능을 설명하기 위해서 XML을 사용한다.</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
-<p>XML-based metadata is <span class="emphasis"><em>not</em></span> the only allowed form of configuration metadata. The
-Spring IoC container itself is <span class="emphasis"><em>totally</em></span> decoupled from the format in which this
-configuration metadata is actually written. These days many developers choose
-<a class="link" href="beans.html#beans-java" title="5.12&nbsp;Java-based container configuration">Java-based configuration</a> for their Spring applications.</p>
+<p>XML기반의 메타데이터는 설정 메타데이터를 위한 유일한 형식이 <span class="emphasis"><em>아니다</em></span>.
+스프링 IoC 컨테이너 자체도 실제 작성된 설정 메타데이터의 형식과 완전히 분리되어 있다.
+최근에는 많은 개발자들이 그들의 스프링 애플리케이션을 개발시에
+<a class="link" href="beans.html#beans-java" title="5.12&nbsp;Java-based container configuration">
+자바-기반의 설정</a>을 선택하고 있다.</p>
 </td></tr></table></div>
-<p>For information about using other forms of metadata with the Spring container, see:</p>
+<p>스프링 컨테이너에 다른 형식의 메타데이터를 사용하는 방법에 대해서는 다음을 참고해라.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<a class="link" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">Annotation-based configuration</a>: Spring 2.5 introduced
-support for annotation-based configuration metadata.
+<a class="link" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">
+어노테이션-기반의 설정</a>: 스프링 2.5에서 도입된 어노테이션 기반의 설정 메타데이터 지원.
 </li><li class="listitem">
-<a class="link" href="beans.html#beans-java" title="5.12&nbsp;Java-based container configuration">Java-based configuration</a>: Starting with Spring 3.0, many features
-provided by the Spring JavaConfig project became part of the core Spring Framework.
-Thus you can define beans external to your application classes by using Java rather
-than XML files. To use these new features, see the <code class="literal">@Configuration</code>, <code class="literal">@Bean</code>, <code class="literal">@Import</code>
-and <code class="literal">@DependsOn</code> annotations.
-</li></ul></div>
-<p>Spring configuration consists of at least one and typically more than one bean
-definition that the container must manage. XML-based configuration metadata shows these
-beans configured as <code class="literal">&lt;bean/&gt;</code> elements inside a top-level <code class="literal">&lt;beans/&gt;</code> element. Java
-configuration typically uses <code class="literal">@Bean</code> annotated methods within a <code class="literal">@Configuration</code> class.</p>
-<p>These bean definitions correspond to the actual objects that make up your application.
-Typically you define service layer objects, data access objects (DAOs), presentation
-objects such as Struts <code class="literal">Action</code> instances, infrastructure objects such as Hibernate
-<code class="literal">SessionFactories</code>, JMS <code class="literal">Queues</code>, and so forth. Typically one does not configure
-fine-grained domain objects in the container, because it is usually the responsibility
-of DAOs and business logic to create and load domain objects. However, you can use
-Spring&#8217;s integration with AspectJ to configure objects that have been created outside
-the control of an IoC container. See <a class="link" href="aop.html#aop-atconfigurable" title="9.8.1&nbsp;Using AspectJ to dependency inject domain objects with Spring">Using AspectJ to
-dependency-inject domain objects with Spring</a>.</p>
-<p>The following example shows the basic structure of XML-based configuration metadata:</p>
+<a class="link" href="beans.html#beans-java" title="5.12&nbsp;Java-based container configuration">
+자바-기반의 설정</a>: 스프링 3.0을 시작하면서 스프링 JavaConfig 프로젝트의 많은 기능이
+스프링 프레임워크의 핵심부분이 되었다. 그러므로 XML파일 대신에 자바로 어플리케이션 클래스에 대한 빈을
+외부에서 정의할 수 있다. 이 기능을 사용하려면 <code class="literal">@Configuration</code>,
+<code class="literal">@Bean</code>, <code class="literal">@Import</code>,
+<code class="literal">@DependsOn</code> 어노테이션을 봐라.</li></ul></div>
+<p>스프링의 설정은 컨테이너가 반드시 관리해야 하는 최소한 하나 이상의 빈 정의로 이루어진다.
+XML기반의 설정 메타데이터는 최상위<code class="literal">&lt;beans/&gt;</code> 엘리먼트 안에 있는
+<code class="literal">&lt;bean/&gt;</code> 엘리먼트들로 이러한 빈을 설정한다.
+자바 설정 방식은 보통 <code class="literal">@Configuration</code> 어노테이션이 붙은 클래스안에
+<code class="literal">@Bean</code> 어노테이션이 붙은 메소드들로 사용된다.</p>
+<p>이러한 빈 정의들은 어플리케이션을 구성하는 실제 객체들과 대응된다.
+일반적으로 서비스계층 객체, 데이터 접근 객체(DAO), Struts <code class="literal">Action</code> 인스턴스같은
+프리젠테이션 객체, Hibernate <code class="literal">SessionFactories</code>같은 인프라스트럭처 객체,
+JMS <code class="literal">Queues</code>등을 정의한다.
+보통 이는 보통 도메인 객체를 생성하고 로드하는 DAO와 비즈니스 로직에 대한 책임이 있기 때문에
+컨테이너에서 세분화된 도메인 객체를 설정하지 않는다. 하지만 IoC 컨테이너의 제어범위 밖에서 생성된 객체를
+설정하기 위해 AspectJ를 스프링과 통합할 수 있다. <a class="link" href="aop.html#aop-atconfigurable" title="9.8.1&nbsp;Using AspectJ to dependency inject domain objects with Spring">스프링에 도메인 객체를 의존성 주입시 AspectJ 사용하기</a>을 참고해라..</p>
+<p>다음 예제는 XML기반의 설정데이터의 기본구조를 보여준다.</p>
 <pre class="programlisting"><span class="hl-directive" style="color: maroon">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hl-tag">&lt;beans</span> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.springframework.org/schema/beans"</span>
     <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -105,55 +102,50 @@ dependency-inject domain objects with Spring</a>.</p>
         http://www.springframework.org/schema/beans/spring-beans.xsd"</span><span class="hl-tag">&gt;</span>
 
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"..."</span> <span class="hl-attribute">class</span>=<span class="hl-value">"..."</span><span class="hl-tag">&gt;</span>
-        <span class="hl-comment">&lt;!-- collaborators and configuration for this bean go here --&gt;</span>
+        <span class="hl-comment">&lt;!-- 이 빈에 대한 추가적인 협력 객체나 설정은 여기에 작성한다 --&gt;</span>
     <span class="hl-tag">&lt;/bean&gt;</span>
 
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"..."</span> <span class="hl-attribute">class</span>=<span class="hl-value">"..."</span><span class="hl-tag">&gt;</span>
-        <span class="hl-comment">&lt;!-- collaborators and configuration for this bean go here --&gt;</span>
+        <span class="hl-comment">&lt;!-- 이 빈에 대한 추가적인 협력 객체나 설정은 여기에 작성한다 --&gt;</span>
     <span class="hl-tag">&lt;/bean&gt;</span>
 
-    <span class="hl-comment">&lt;!-- more bean definitions go here --&gt;</span>
+    <span class="hl-comment">&lt;!-- 추가적인 빈 정의는 여기에 작성한다 --&gt;</span>
 
 <span class="hl-tag">&lt;/beans&gt;</span></pre>
-<p>The <code class="literal">id</code> attribute is a string that you use to identify the individual bean definition.
-The <code class="literal">class</code> attribute defines the type of the bean and uses the fully qualified
-classname. The value of the id attribute refers to collaborating objects. The XML for
-referring to collaborating objects is not shown in this example; see
-<a class="link" href="beans.html#beans-dependencies" title="5.4&nbsp;Dependencies">Dependencies</a> for more information.</p>
+<p><code class="literal">id</code> 속성은 개별 빈 정의를 구분하기 위해 사용하는 문자열이다.
+<code class="literal">class</code> 속성은 빈의 타입을 정의하고 전체 패키지 명이 붙은 클래스 이름을 사용한다.
+id 속성의 값은 협력 객체를 참조한다. 협력 객체를 참조하는 XML은 이 예제에 없다.
+더 자세한 정보는 <a class="link" href="beans.html#beans-dependencies" title="5.4&nbsp;Dependencies">의존성들</a>을 참고해라.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-instantiation" href="#beans-factory-instantiation"></a>5.2.2&nbsp;Instantiating a container</h3></div></div></div>
-<p>Instantiating a Spring IoC container is straightforward. The location path or paths
-supplied to an <code class="literal">ApplicationContext</code> constructor are actually resource strings that allow
-the container to load configuration metadata from a variety of external resources such
-as the local file system, from the Java <code class="literal">CLASSPATH</code>, and so on.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-instantiation" href="#beans-factory-instantiation"></a>5.2.2&nbsp;컨테이너의 인스턴스화</h3></div></div></div>
+<p>스프링 IoC 컨테이너의 인스턴스화는 이해하기 쉽다. <code class="literal">ApplicationContext</code> 생성자에
+제공한 위치 경로는 사실 리소스에 대한 문자열이다. 컨테이너는 이 경로로 로컬파일 시스템 같은 다양한 외부 리소스나 자바 <code class="literal">CLASSPATH</code> 등에서 설정 메타데이터를 로드한다.</p>
 <pre class="programlisting">ApplicationContext context =
     <span class="hl-keyword">new</span> ClassPathXmlApplicationContext(<span class="hl-keyword">new</span> String[] {<span class="hl-string">"services.xml"</span>, <span class="hl-string">"daos.xml"</span>});</pre>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
-<p>After you learn about Spring&#8217;s IoC container, you may want to know more about Spring&#8217;s
-<code class="literal">Resource</code> abstraction, as described in <a class="xref" href="resources.html" title="6.&nbsp;리소스들">Chapter&nbsp;6, <i>Resources</i></a>, which provides a convenient
-mechanism for reading an InputStream from locations defined in a URI syntax. In
-particular, <code class="literal">Resource</code> paths are used to construct applications contexts as described in
-<a class="xref" href="resources.html#resources-app-ctx" title="6.7&nbsp;Application contexts and Resource paths">Section&nbsp;6.7, &#8220;Application contexts and Resource paths&#8221;</a>.</p>
+<p>스프링의 IoC 컨테이너를 공부하고 나면 <a class="xref" href="resources.html" title="6.&nbsp;리소스들">Chapter&nbsp;6, <i>리소스들</i></a>에서 설명할 스프링의 <code class="literal">Resource</code>에 대해서 궁금해질 것이다.
+Resource는 URI 문법으로 정의된 위치에서 InputStream을 읽는 편리한 메니즘을 제공한다.
+특히, <code class="literal">Resource</code> 경로는 <a class="xref" href="resources.html#resources-app-ctx" title="6.7&nbsp;Application contexts and Resource paths">6.7절, &#8220;Application contexts and Resource paths&#8221;</a>에서 설명하는 어플리케이션 컨텍스트를 구성하는데 사용한다.</p>
 </td></tr></table></div>
-<p>The following example shows the service layer objects <code class="literal">(services.xml)</code> configuration file:</p>
+<p>다음 예제는 서비스 계층 객체 <code class="literal">(services.xml)</code>의 설정파일이다.</p>
 <pre class="programlisting"><span class="hl-directive" style="color: maroon">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hl-tag">&lt;beans</span> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.springframework.org/schema/beans"</span>
     <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
     <span class="hl-attribute">xsi:schemaLocation</span>=<span class="hl-value">"http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd"</span><span class="hl-tag">&gt;</span>
 
-    <span class="hl-comment">&lt;!-- services --&gt;</span>
+    <span class="hl-comment">&lt;!-- 서비스들 --&gt;</span>
 
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"petStore"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.samples.jpetstore.services.PetStoreServiceImpl"</span><span class="hl-tag">&gt;</span>
         <span class="hl-tag">&lt;property</span> <span class="hl-attribute">name</span>=<span class="hl-value">"accountDao"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"accountDao"</span><span class="hl-tag">/&gt;</span>
         <span class="hl-tag">&lt;property</span> <span class="hl-attribute">name</span>=<span class="hl-value">"itemDao"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"itemDao"</span><span class="hl-tag">/&gt;</span>
-        <span class="hl-comment">&lt;!-- additional collaborators and configuration for this bean go here --&gt;</span>
+        <span class="hl-comment">&lt;!-- 이 빈에 대한 추가적인 협력 객체나 설정은 여기에 작성한다 --&gt;</span>
     <span class="hl-tag">&lt;/bean&gt;</span>
 
-    <span class="hl-comment">&lt;!-- more bean definitions for services go here --&gt;</span>
+    <span class="hl-comment">&lt;!-- 서비스들에 대한 추가적인 빈 정의들은 여기에 작성한다 --&gt;</span>
 
 <span class="hl-tag">&lt;/beans&gt;</span></pre>
-<p>The following example shows the data access objects <code class="literal">daos.xml</code> file:</p>
+<p>다음 예제는 데이터 접근 객체인 <code class="literal">daos.xml</code> 파일이다.</p>
 <pre class="programlisting"><span class="hl-directive" style="color: maroon">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hl-tag">&lt;beans</span> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.springframework.org/schema/beans"</span>
     <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -162,30 +154,29 @@ particular, <code class="literal">Resource</code> paths are used to construct ap
 
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"accountDao"</span>
         <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao"</span><span class="hl-tag">&gt;</span>
-        <span class="hl-comment">&lt;!-- additional collaborators and configuration for this bean go here --&gt;</span>
+        <span class="hl-comment">&lt;!-- 이 빈에 대한 추가적인 협력 객체나 설정은 여기에 작성한다 --&gt;</span>
     <span class="hl-tag">&lt;/bean&gt;</span>
 
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"itemDao"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.samples.jpetstore.dao.jpa.JpaItemDao"</span><span class="hl-tag">&gt;</span>
-        <span class="hl-comment">&lt;!-- additional collaborators and configuration for this bean go here --&gt;</span>
+        <span class="hl-comment">&lt;!-- 이 빈에 대한 추가적인 협력 객체나 설정은 여기에 작성한다 --&gt;</span>
     <span class="hl-tag">&lt;/bean&gt;</span>
 
-    <span class="hl-comment">&lt;!-- more bean definitions for data access objects go here --&gt;</span>
+    <span class="hl-comment">&lt;!-- 데이터 접근 객체들에 대한 추가적인 빈 정의들은 여기에 작성한다 --&gt;</span>
 
 <span class="hl-tag">&lt;/beans&gt;</span></pre>
-<p>In the preceding example, the service layer consists of the class <code class="literal">PetStoreServiceImpl</code>,
-and two data access objects of the type <code class="literal">JpaAccountDao</code> and <code class="literal">JpaItemDao</code> (based
-on the JPA Object/Relational mapping standard). The <code class="literal">property name</code> element refers to the
-name of the JavaBean property, and the <code class="literal">ref</code> element refers to the name of another bean
-definition. This linkage between <code class="literal">id</code> and <code class="literal">ref</code> elements expresses the dependency between
-collaborating objects. For details of configuring an object&#8217;s dependencies, see
-<a class="link" href="beans.html#beans-dependencies" title="5.4&nbsp;Dependencies">Dependencies</a>.</p>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-xml-import" href="#beans-factory-xml-import"></a>Composing XML-based configuration metadata</h4></div></div></div>
-<p>It can be useful to have bean definitions span multiple XML files. Often each individual
-XML configuration file represents a logical layer or module in your architecture.</p>
-<p>You can use the application context constructor to load bean definitions from all these
-XML fragments. This constructor takes multiple <code class="literal">Resource</code> locations, as was shown in the
-previous section. Alternatively, use one or more occurrences of the <code class="literal">&lt;import/&gt;</code> element
-to load bean definitions from another file or files. For example:</p>
+<p>앞의 예제에서, 서비스계층은 <code class="literal">PetStoreServiceImpl</code> 클래스와
+JPA 객체/관계 매핑 표준인 <code class="literal">JpaAccountDao</code>와 <code class="literal">JpaItemDao</code> 타입의
+두 데이터 접근 객체들로 이루어져 있다. <code class="literal">property name</code> 요소는
+JavaBean 프로퍼티의 이름을 참조한다. <code class="literal">ref</code> 요소는 또 다른 빈 정의의 이름을 참조한다.
+<code class="literal">id</code>와 <code class="literal">ref</code>의 결합은 협력 객체들 사이의 의존성을 나타낸다.
+객체의 의존성을 설정하는 방법에 대한 자세한 내용은 <a class="link" href="beans.html#beans-dependencies" title="5.4&nbsp;Dependencies">의존성들</a>을 참고하여라.</p>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-xml-import" href="#beans-factory-xml-import"></a>XML기반의 설정 메타데이터 구성</h4></div></div></div>
+<p>빈 정의를 여러 XML 파일에 하는 것은 유용할 수 있다.
+때때로 개별 XML 설정파일은 아키텍처상의 논리적인 계층이나 모듈을 나타낸다.</p>
+<p>어플리케이션 컨텍스트 생성자를 이러한 XML 파일들로부터 빈 정의를 로드하는데 사용할 수 있다.
+이 생성자는 이전 섹션에서 보여준 것처럼 여러 <code class="literal">Resource</code>의 위치를 받을 수 있다.
+아니면 하나 이상의<code class="literal">&lt;import/&gt;</code> 요소를 사용해서
+다른 파일의 빈 정의를 로드할 수 있다. 예를 들면 다음과 같다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;beans&gt;</span>
     <span class="hl-tag">&lt;import</span> <span class="hl-attribute">resource</span>=<span class="hl-value">"services.xml"</span><span class="hl-tag">/&gt;</span>
     <span class="hl-tag">&lt;import</span> <span class="hl-attribute">resource</span>=<span class="hl-value">"resources/messageSource.xml"</span><span class="hl-tag">/&gt;</span>
@@ -194,212 +185,195 @@ to load bean definitions from another file or files. For example:</p>
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"bean1"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"..."</span><span class="hl-tag">/&gt;</span>
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"bean2"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"..."</span><span class="hl-tag">/&gt;</span>
 <span class="hl-tag">&lt;/beans&gt;</span></pre>
-<p>In the preceding example, external bean definitions are loaded from three files:
-<code class="literal">services.xml</code>, <code class="literal">messageSource.xml</code>, and <code class="literal">themeSource.xml</code>. All location paths are
-relative to the definition file doing the importing, so <code class="literal">services.xml</code> must be in the
-same directory or classpath location as the file doing the importing, while
-<code class="literal">messageSource.xml</code> and <code class="literal">themeSource.xml</code> must be in a <code class="literal">resources</code> location below the
-location of the importing file. As you can see, a leading slash is ignored, but given
-that these paths are relative, it is better form not to use the slash at all. The
-contents of the files being imported, including the top level <code class="literal">&lt;beans/&gt;</code> element, must
-be valid XML bean definitions according to the Spring Schema.</p>
+<p>앞의 예제에서는<code class="literal">services.xml</code>, <code class="literal">messageSource.xml</code>,
+<code class="literal">themeSource.xml</code> 의 3개 파일에서 외부 빈 정의를 로드했다.
+모든 위치 경로는 임포트하는 파일의 상대경로이므로 <code class="literal">services.xml</code>는
+반드시 같은 디렉터리에 있거나 같은 클래스패스 경로에 있어야 한다.
+그리고 <code class="literal">messageSource.xml</code>와 <code class="literal">themeSource.xml</code>는
+임포트하는 파일 하위에 <code class="literal">resources</code> 위치에 있어야 한다.
+이 예제에서 보듯이 맨 앞의 슬래시(/)는 무시되고 경로는 상대경로가 되므로
+맨 앞에 슬래시를 사용하지 않는 것이 더 좋은 형식이다. 임포트된 파일의 내용은
+최상위에 <code class="literal">&lt;beans/&gt;</code>가 있는 스프링 스키마를 따르는 유효한 XML 빈 정의여야 한다.</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
-<p>It is possible, but not recommended, to reference files in parent directories using a
-relative "../" path. Doing so creates a dependency on a file that is outside the current
-application. In particular, this reference is not recommended for "classpath:" URLs (for
-example, "classpath:../services.xml"), where the runtime resolution process chooses the
-"nearest" classpath root and then looks into its parent directory. Classpath
-configuration changes may lead to the choice of a different, incorrect directory.</p>
-<p>You can always use fully qualified resource locations instead of relative paths: for
-example, "file:C:/config/services.xml" or "classpath:/config/services.xml". However, be
-aware that you are coupling your application&#8217;s configuration to specific absolute
-locations. It is generally preferable to keep an indirection for such absolute
-locations, for example, through "${&#8230;}" placeholders that are resolved against JVM
-system properties at runtime.</p>
+<p>"../"를 사용해서 부모 디렉터리의 파일을 참조하는 것도 가능하지만 별로 권하지 않는다.
+부모 디렉터리를 참조하면 현재 어플리케이션 밖에 있는 파일에 대한 의존성을 만든다.
+특히 이러한 참조는 "가장 가까운" 클래스패스 루트를 선택하고 루트의 부모 디렉터리를 검색하는
+런타임 처리인 "classpath:" URL(예를 들면 "classpath:../services.xml")에서는 사용하지 말아야 한다.
+클래스패스 설정을 변경하면 다른 디렉토리나 잘못된 디렉터리를 선택할 수 있다.</p>
+<p>상대경로 대신 항상 전체 리소스 경로를 사용할 수 있다. 예를 들면 "file:C:/config/services.xml" 나
+"classpath:/config/services.xml"와 같은 형식이다. 하지만 절대경로를 사용하면 어플리케이션 설정이
+특정 절대경로에 대한 깊은 결합도가 생긴다는 것을 알아야 한다. 보통 이러한 절대 경로를 우회하는 방법을
+더 선호한다. 예를 들면 "${...}" 자리 표시자를 사용해서 런타임시에 JVM 시스템 프로퍼티로 교체한다.</p>
 </td></tr></table></div>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-client" href="#beans-factory-client"></a>5.2.3&nbsp;Using the container</h3></div></div></div>
-<p>The <code class="literal">ApplicationContext</code> is the interface for an advanced factory capable of maintaining
-a registry of different beans and their dependencies. Using the method <code class="literal">T getBean(String
-name, Class&lt;T&gt; requiredType)</code> you can retrieve instances of your beans.</p>
-<p>The <code class="literal">ApplicationContext</code> enables you to read bean definitions and access them as follows:</p>
-<pre class="programlisting"><span class="hl-comment">// create and configure beans</span>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-client" href="#beans-factory-client"></a>5.2.3&nbsp;컨테이너의 사용</h3></div></div></div>
+<p><code class="literal">ApplicationContext</code>는 여러 빈의 등록과 빈의 의존성을 유지하는
+향상된 팩토리 기능을 제공하는 인터페이스다. <code class="literal">T getBean(String
+name, Class&lt;T&gt; requiredType)</code> 메서드를 사용하면 빈의 인스턴스를 얻을 수 있다.</p>
+<p><code class="literal">ApplicationContext</code>는 다음과 같이 빈 정의를 읽고 빈에 접근할 수 있게 한다.</p>
+<pre class="programlisting"><span class="hl-comment">// 생성과 설정 빈</span>
 ApplicationContext context =
     <span class="hl-keyword">new</span> ClassPathXmlApplicationContext(<span class="hl-keyword">new</span> String[] {<span class="hl-string">"services.xml"</span>, <span class="hl-string">"daos.xml"</span>});
 
-<span class="hl-comment">// retrieve configured instance</span>
+<span class="hl-comment">// 설정된 인스턴스 획득</span>
 PetStoreService service = context.getBean(<span class="hl-string">"petStore"</span>, PetStoreService.<span class="hl-keyword">class</span>);
 
-<span class="hl-comment">// use configured instance</span>
+<span class="hl-comment">// 설정된 인스턴스 사용</span>
 List&lt;String&gt; userList = service.getUsernameList();</pre>
-<p>You use <code class="literal">getBean()</code> to retrieve instances of your beans. The <code class="literal">ApplicationContext</code>
-interface has a few other methods for retrieving beans, but ideally your application
-code should never use them. Indeed, your application code should have no calls to the
-<code class="literal">getBean()</code> method at all, and thus no dependency on Spring APIs at all. For example,
-Spring&#8217;s integration with web frameworks provides for dependency injection for various
-web framework classes such as controllers and JSF-managed beans.</p>
+<p><code class="literal">getBean()</code>를 사용해서 빈의 인스턴스를 얻는다.
+<code class="literal">ApplicationContext</code> 인터페이스에는 빈을 얻어오는 몇 가지 메서드가 더 있지만,
+이상적으로는 어플리케이션 코드는 이러한 메서드를 사용하지 말아야 한다.
+사실 어플리케이션 코드는 <code class="literal">getBean()</code> 메서드를 전혀 호출하지 말아야 한다.
+그래서 스프링 API에 대한 의존성을 전혀 갖지 말아야 한다. 예를 들어 웹 프레임워크에 대한 스프링의 통합은
+컨트롤러와 JSF로 관리되는 빈처럼 여러 가지 웹 프레임워크 클래스에 대한 의존성 주입을 제공한다.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-definition" href="#beans-definition"></a>5.3&nbsp;Bean overview</h2></div></div></div>
-<p>A Spring IoC container manages one or more <span class="emphasis"><em>beans</em></span>. These beans are created with the
-configuration metadata that you supply to the container, for example, in the form of XML
-<code class="literal">&lt;bean/&gt;</code> definitions.</p>
-<p>Within the container itself, these bean definitions are represented as <code class="literal">BeanDefinition</code>
-objects, which contain (among other information) the following metadata:</p>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-definition" href="#beans-definition"></a>5.3&nbsp;빈(Bean) 개요</h2></div></div></div>
+<p>스프링 IoC 컨테이너는 하나 이상의 <span class="emphasis"><em>beans</em></span>을 관리한다.
+이러한 빈은 XML <code class="literal">&lt;bean/&gt;</code> 정의 같은 컨테이너에 제공한 설정 메타데이터로 생성된다.</p>
+<p>컨테이너 내부에서 이러한 빈 정의는 <code class="literal">BeanDefinition</code> 객체로 나타나고
+이 객체는 (다른 정보들과 함께) 다음의 메타데이터를 포함하고 있다.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<span class="emphasis"><em>A package-qualified class name:</em></span> typically the actual implementation class of the
-bean being defined.
+<span class="emphasis"><em>패키지에 최적화된(package-qualified) 클래스명:</em></span> 보통 정의된 빈의 실제 구현클래스이다.
 </li><li class="listitem">
-Bean behavioral configuration elements, which state how the bean should behave in the
-container (scope, lifecycle callbacks, and so forth).
+빈의 행동에 대한 설정 요소들. (스코프, 라이프사이클 콜백 등) 컨테이너에서 빈이 어떻게 동작해야 하는가에 대한 상태.
 </li><li class="listitem">
-References to other beans that are needed for the bean to do its work; these
-references are also called <span class="emphasis"><em>collaborators</em></span> or <span class="emphasis"><em>dependencies</em></span>.
+빈이 동작하는 데 필요한 다른 빈들에 대한 참조. 이러한 참조들을 <span class="emphasis"><em>협력객체(collaborators)</em></span>나 <span class="emphasis"><em>collaborators</em></span> or <span class="emphasis"><em>의존성(dependencies)</em></span>이라고 부른다.
 </li><li class="listitem">
-Other configuration settings to set in the newly created object, for example, the
-number of connections to use in a bean that manages a connection pool, or the size
-limit of the pool.
+새로 생성된 객체에 설정해야 하는 그 외 설정값. 예를 들면, 커넥션 풀을 관리하는 빈에서
+사용해야 하는 커넥션의 수나 풀의 용량제한 등이다.
 </li></ul></div>
-<p>This metadata translates to a set of properties that make up each bean definition.</p>
-<div class="table"><a name="beans-factory-bean-definition-tbl" href="#beans-factory-bean-definition-tbl"></a><p class="title"><b>Table&nbsp;5.1.&nbsp;The bean definition</b></p><div class="table-contents">
-<table summary="The bean definition" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col class="col_1"><col class="col_2"></colgroup><thead><tr><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">Property</th><th style="border-bottom: 0.5pt solid ; " align="left" valign="top">Explained in&#8230;</th></tr></thead><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>class</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-class" title="5.3.2&nbsp;Instantiating beans">Section&nbsp;5.3.2, &#8220;Instantiating beans&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>name</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-beanname" title="5.3.1&nbsp;Naming beans">Section&nbsp;5.3.1, &#8220;Naming beans&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>scope</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-scopes" title="5.5&nbsp;Bean scopes">Section&nbsp;5.5, &#8220;Bean scopes&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>constructor arguments</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">Section&nbsp;5.4.1, &#8220;Dependency injection&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>properties</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">Section&nbsp;5.4.1, &#8220;Dependency injection&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>autowiring mode</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">Section&nbsp;5.4.5, &#8220;Autowiring collaborators&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>lazy-initialization mode</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lazy-init" title="5.4.4&nbsp;Lazy-initialized beans">Section&nbsp;5.4.4, &#8220;Lazy-initialized beans&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>initialization method</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lifecycle-initializingbean" title="Initialization callbacks">the section called &#8220;Initialization callbacks&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p>destruction method</p></td><td style="" align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lifecycle-disposablebean" title="Destruction callbacks">the section called &#8220;Destruction callbacks&#8221;</a></p></td></tr></tbody></table>
+<p>이 메타데이터는 각 빈 정의를 구성하는 프로퍼티의 집합으로 바뀐다.</p>
+<div class="table"><a name="beans-factory-bean-definition-tbl" href="#beans-factory-bean-definition-tbl"></a><p class="title"><b>표&nbsp;5.1.&nbsp;빈 정의</b></p><div class="table-contents">
+<table summary="The bean definition" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col class="col_1"><col class="col_2"></colgroup><thead><tr><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">프로퍼티</th><th style="border-bottom: 0.5pt solid ; " align="left" valign="top">설명하는 곳은&#8230;</th></tr></thead><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>class</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-class" title="5.3.2&nbsp;Instantiating beans">5.3.2절, &#8220;빈의 인스턴스화&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>name</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-beanname" title="5.3.1&nbsp;Naming beans">5.3.1절, &#8220;빈 이름짓기&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>scope</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-scopes" title="5.5&nbsp;Bean scopes">5.5절, &#8220;빈 스코프들&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>constructor arguments</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">5.4.1절, &#8220;의존성 주입&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>properties</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">5.4.1절, &#8220;의존성 주입&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>autowiring mode</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">5.4.5절, &#8220;협력 객체들을 Autowire하기&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>lazy-initialization mode</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lazy-init" title="5.4.4&nbsp;Lazy-initialized beans">5.4.4절, &#8220;빈의 지연 초기화&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>initialization method</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lifecycle-initializingbean" title="Initialization callbacks">&#8220;콜백 초기화&#8221;라고 이름 붙은 절</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p>destruction method</p></td><td style="" align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-lifecycle-disposablebean" title="Destruction callbacks">&#8220;콜백 소멸&#8221;라고 이름 붙은 절</a></p></td></tr></tbody></table>
 </div></div><br class="table-break">
-<p>In addition to bean definitions that contain information on how to create a specific
-bean, the <code class="literal">ApplicationContext</code> implementations also permit the registration of existing
-objects that are created outside the container, by users. This is done by accessing the
-ApplicationContext&#8217;s BeanFactory via the method <code class="literal">getBeanFactory()</code> which returns the
-BeanFactory implementation <code class="literal">DefaultListableBeanFactory</code>. <code class="literal">DefaultListableBeanFactory</code>
-supports this registration through the methods <code class="literal">registerSingleton(..)</code> and
-<code class="literal">registerBeanDefinition(..)</code>. However, typical applications work solely with beans
-defined through metadata bean definitions.</p>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-beanname" href="#beans-beanname"></a>5.3.1&nbsp;Naming beans</h3></div></div></div>
-<p>Every bean has one or more identifiers. These identifiers must be unique within the
-container that hosts the bean. A bean usually has only one identifier, but if it
-requires more than one, the extra ones can be considered aliases.</p>
-<p>In XML-based configuration metadata, you use the <code class="literal">id</code> and/or <code class="literal">name</code> attributes
-to specify the bean identifier(s). The <code class="literal">id</code> attribute allows you to specify
-exactly one id. Conventionally these names are alphanumeric (<span class="emphasis"><em>myBean</em></span>,
-<span class="emphasis"><em>fooService</em></span>, etc.), but may contain special characters as well. If you want to
-introduce other aliases to the bean, you can also specify them in the <code class="literal">name</code>
-attribute, separated by a comma (<code class="literal">,</code>), semicolon (<code class="literal">;</code>), or white space. As a
-historical note, in versions prior to Spring 3.1, the <code class="literal">id</code> attribute was
-defined as an <code class="literal">xsd:ID</code> type, which constrained possible characters. As of 3.1,
-it is defined as an <code class="literal">xsd:string</code> type. Note that bean <code class="literal">id</code> uniqueness is still
-enforced by the container, though no longer by XML parsers.</p>
-<p>You are not required to supply a name or id for a bean. If no name or id is supplied
-explicitly, the container generates a unique name for that bean. However, if you want to
-refer to that bean by name, through the use of the <code class="literal">ref</code> element or
-<a class="link" href="beans.html#beans-servicelocator" title="5.16.2&nbsp;Glue code and the evil singleton">Service Locator</a> style lookup, you must provide a name.
-Motivations for not supplying a name are related to using <a class="link" href="beans.html#beans-inner-beans" title="Inner beans">inner
-beans</a> and <a class="link" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">autowiring collaborators</a>.</p>
-<div class="sidebar"><div class="titlepage"><div><div><p class="title"><b>Bean Naming Conventions</b></p></div></div></div>
-<p>The convention is to use the standard Java convention for instance field names when
-naming beans. That is, bean names start with a lowercase letter, and are camel-cased
-from then on. Examples of such names would be (without quotes) <code class="literal">'accountManager'</code>,
-<code class="literal">'accountService'</code>, <code class="literal">'userDao'</code>, <code class="literal">'loginController'</code>, and so forth.</p>
-<p>Naming beans consistently makes your configuration easier to read and understand, and if
-you are using Spring AOP it helps a lot when applying advice to a set of beans related
-by name.</p>
+<p>어떻게 특정 빈을 생성하는가에 대한 정보를 담고 있는 빈 정의에 대해 추가로
+<code class="literal">ApplicationContext</code> 구현체도 사용자가 컨테이너 밖에서 생성해서
+이미 존재하는 객체들을 등록할 수 있다. <code class="literal">getBeanFactory()</code> 메서드로
+어플리케이션 컨텍스트의 BeanFactory에 접근해서 이러한 객체들을 등록한다. getBeanFactory() 메서드는 BeanFactory를 구현한 <code class="literal">DefaultListableBeanFactory</code>를 리턴한다.
+<code class="literal">DefaultListableBeanFactory</code>는 <code class="literal">registerSingleton(..)</code>과
+<code class="literal">registerBeanDefinition(..)</code> 메서드로 이러한 등록을 지원한다.
+하지만, 일반적인 어플리케이션은 메타데이터 빈 정의에서 정의된 빈으로만 동작한다.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-beanname" href="#beans-beanname"></a>5.3.1&nbsp;빈 이름짓기</h3></div></div></div>
+<p>모든 빈에는 하나 이상의 식별자가 있다. 이러한 식별자는 빈을 제공하는 컨테이너 내에서
+반드시 유일해야 한다. 보통 빈에는 단 하나의 식별자가 있지만 하나 이상이 필요하다면
+추가적인 식별자로 별칭(alias)을 생각해 볼 수 있다.</p>
+<p>XML기반의 설정 메타데이터에서 <code class="literal">id</code>나 <code class="literal">name</code> 속성으로
+빈의 식별자를 명시한다. <code class="literal">id</code> 속성으로 정확하게 하나의 id를 지정할 수 있다.
+이 이름은 관례적으로 문자와 숫자로 작성하지만 (<span class="emphasis"><em>myBean</em></span>, <span class="emphasis"><em>fooService</em></span> 등) 특수문자도 사용할 수 있다.
+빈에 별도의 별칭을 사용하고 싶다면 <code class="literal">name</code> 속성으로 지정하면 되고
+여러 개를 입력할 때는 콤마(<code class="literal">,</code>)나 세미콜론 (<code class="literal">;</code>)이나
+공백으로 구분한다. 변경사항 문서를 보면 스프링 3.1 이전의 버전에서는 <code class="literal">id</code>속성을
+사용할 수 있는 문자를 제한하기 위해 <code class="literal">xsd:ID</code> 타입을 정의했다.
+스프링 3.1에서는 <code class="literal">xsd:string</code> 타입으로 정의되어 있다.
+더 이상 XML 파서를 사용하지 않더라도 여전히 컨테이너가 빈 <code class="literal">id</code>가
+유일해야 한다는 조건이 있음을 알려둔다.</p>
+<p>빈에 id나 name을 반드시 제공해야 하는 것은 아니다. id나 name을 명시하지 않는다면
+컨테이너는 빈에 유일한 이름을 부여한다. 하지만 <code class="literal">ref</code> 요소나
+<a class="link" href="beans.html#beans-servicelocator" title="5.16.2&nbsp;Glue code and the evil singleton">Service Locator</a> 스타일의 검색을 사용해서 빈을 이름으로 참조하고 싶다면
+이름을 반드시 지정해야 한다. name을 지정하지 않는 이유는
+<a class="link" href="beans.html#beans-inner-beans" title="Inner beans">내부 빈(inner
+beans)</a>과 <a class="link" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">협력객체 오토와이어링(autowiring)</a>를 사용하는 것과 연관이 있다.</p>
+<div class="sidebar"><div class="titlepage"><div><div><p class="title"><b>빈 작명 관례</b></p></div></div></div>
+<p>빈에 이름을 지을 때는 인스턴스의 필드 이름에 대한 표준 자바 관례를 사용한다.
+즉, 빈 이름은 소문자로 시작하고 카멜표기법을 사용한다.
+예를 들어 <code class="literal">'accountManager'</code>,
+<code class="literal">'accountService'</code>, <code class="literal">'userDao'</code>, <code class="literal">'loginController'</code> 등이 된다 (홑따옴표는 생략한다).</p>
+<p>빈의 이름을 일관성 있게 지으면 설정을 읽기 쉽고 이해하기 쉽다. 스프링 AOP를 사용한다면
+이름과 관련된 빈들의 집합에 어드바이스(advice)를 적용할 때 큰 도움이 된다.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-beanname-alias" href="#beans-beanname-alias"></a>Aliasing a bean outside the bean definition</h4></div></div></div>
-<p>In a bean definition itself, you can supply more than one name for the bean, by using a
-combination of up to one name specified by the <code class="literal">id</code> attribute, and any number of other
-names in the <code class="literal">name</code> attribute. These names can be equivalent aliases to the same bean,
-and are useful for some situations, such as allowing each component in an application to
-refer to a common dependency by using a bean name that is specific to that component
-itself.</p>
-<p>Specifying all aliases where the bean is actually defined is not always adequate,
-however. It is sometimes desirable to introduce an alias for a bean that is defined
-elsewhere. This is commonly the case in large systems where configuration is split
-amongst each subsystem, each subsystem having its own set of object definitions. In
-XML-based configuration metadata, you can use the <code class="literal">&lt;alias/&gt;</code> element to accomplish this.</p>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-beanname-alias" href="#beans-beanname-alias"></a>외부에서 정의된 빈의 별칭짓기</h4></div></div></div>
+<p>빈 정의에서 <code class="literal">id</code>속성에서 명시한 이름과 조합하거나
+<code class="literal">name</code> 속성에 여러 이름을 작성해서 빈에 하나 이상의 이름을 작성할 수 있다.
+이러한 이름들은 같은 빈에 대한 별칭이다. 별칭은 컴포넌트 자체에 명시한 빈 이름을 사용해서
+공통 의존성을 참조하는 각각의 컴포넌트를 어플리케이션에서 사용하는 상황 등에서 유용하다.</p>
+<p>빈이 실제로 정의된 곳에 모든 별칭을 명시하는 것이 항상 적절한 것은 아니다.
+때로는 다른 곳에서 정의된 빈에 대해서 별칭을 지정하는 것이 적절한 때도 있다.
+이는 설정이 자신만의 객체 정의의 세트가 있는 여러 서브시스템에 분리된 대형 시스템에서 일반적이다.
+XML 기반의 설정 메타데이터에서 외부에서 정의된 빈에 별칭을 부여하기 위해
+<code class="literal">&lt;alias/&gt;</code>를 사용할 수 있다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;alias</span> <span class="hl-attribute">name</span>=<span class="hl-value">"fromName"</span> <span class="hl-attribute">alias</span>=<span class="hl-value">"toName"</span><span class="hl-tag">/&gt;</span></pre>
-<p>In this case, a bean in the same container which is named <code class="literal">fromName</code>, may also,
-after the use of this alias definition, be referred to as <code class="literal">toName</code>.</p>
-<p>For example, the configuration metadata for subsystem A may refer to a DataSource via
-the name <code class="literal">subsystemA-dataSource</code>. The configuration metadata for subsystem B may refer to
-a DataSource via the name <code class="literal">subsystemB-dataSource</code>. When composing the main application
-that uses both these subsystems the main application refers to the DataSource via the
-name <code class="literal">myApp-dataSource</code>. To have all three names refer to the same object you add to the
-MyApp configuration metadata the following aliases definitions:</p>
+<p>이 예제의 설정을 사용하면 같은 컨테이너에서 <code class="literal">fromName</code>라는 이름의 빈을
+<code class="literal">toName</code>로도 참조할 수 있다.</p>
+<p>예를 들어, 서브시스템 A의 설정 메타데이터는 <code class="literal">subsystemA-dataSource</code>라는 이름으로 
+DataSource를 참조한다. 서브시스템 B의 설정 메타데이터는 <code class="literal">subsystemB-dataSource</code> 라는
+이름으로 DataSource를 참조한다. 이 두 서브시스템을 사용해서 메인 어플리케이션을 구성했을 때
+메인 어플리케이션은 <code class="literal">myApp-dataSource</code>라는 이름으로 DataSource를 참조한다.
+이 3가지 이름이 같은 객체를 참조하게 하려면 MyApp 설정 메타데이터에 다음의 별칭 정의를 추가해야 한다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;alias</span> <span class="hl-attribute">name</span>=<span class="hl-value">"subsystemA-dataSource"</span> <span class="hl-attribute">alias</span>=<span class="hl-value">"subsystemB-dataSource"</span><span class="hl-tag">/&gt;</span>
 <span class="hl-tag">&lt;alias</span> <span class="hl-attribute">name</span>=<span class="hl-value">"subsystemA-dataSource"</span> <span class="hl-attribute">alias</span>=<span class="hl-value">"myApp-dataSource"</span><span class="hl-tag"> /&gt;</span></pre>
-<p>Now each component and the main application can refer to the dataSource through a name
-that is unique and guaranteed not to clash with any other definition (effectively
-creating a namespace), yet they refer to the same bean.</p>
-<div class="sidebar"><div class="titlepage"><div><div><p class="title"><b>Java-configuration</b></p></div></div></div>
-<p>If you are using Java-configuration, the <code class="literal">@Bean</code> annotation can be used to provide aliases
-see <a class="xref" href="beans.html#beans-java-bean-annotation" title="5.12.3&nbsp;Using the @Bean annotation">Section&nbsp;5.12.3, &#8220;Using the @Bean annotation&#8221;</a> for details.</p>
+<p>이제 각 컴포넌트와 메인 어플리케이션은 유일하면서
+다른 어떤 정의와도 충돌하지 않는다는 보장을 받은 이름을 통해 데이터소스를 참조할 수 있다.
+물론 같은 빈을 참조한다.</p>
+<div class="sidebar"><div class="titlepage"><div><div><p class="title"><b>자바-설정</b></p></div></div></div>
+<p>만약 자바-설정을 사용한다면, <code class="literal">@Bean</code> 어노테이션으로 제공되는 별칭을 사용할 수 있다.
+자세한 것은, <a class="xref" href="beans.html#beans-java-bean-annotation" title="5.12.3&nbsp;Using the @Bean annotation">5.12.3절, &#8220;@Bean 어노테이션 사용하기&#8221;</a>를 보아라.</p>
 </div>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-class" href="#beans-factory-class"></a>5.3.2&nbsp;Instantiating beans</h3></div></div></div>
-<p>A bean definition essentially is a recipe for creating one or more objects. The
-container looks at the recipe for a named bean when asked, and uses the configuration
-metadata encapsulated by that bean definition to create (or acquire) an actual object.</p>
-<p>If you use XML-based configuration metadata, you specify the type (or class) of object
-that is to be instantiated in the <code class="literal">class</code> attribute of the <code class="literal">&lt;bean/&gt;</code> element. This
-<code class="literal">class</code> attribute, which internally is a <code class="literal">Class</code> property on a <code class="literal">BeanDefinition</code>
-instance, is usually mandatory. (For exceptions, see
-<a class="xref" href="beans.html#beans-factory-class-instance-factory-method" title="Instantiation using an instance factory method">the section called &#8220;Instantiation using an instance factory method&#8221;</a> and <a class="xref" href="beans.html#beans-child-bean-definitions" title="5.7&nbsp;Bean definition inheritance">Section&nbsp;5.7, &#8220;Bean definition inheritance&#8221;</a>.)
-You use the <code class="literal">Class</code> property in one of two ways:</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-class" href="#beans-factory-class"></a>5.3.2&nbsp;빈의 인스턴스화</h3></div></div></div>
+<p>본질적으로 빈 정의는 하나 이상의 객체를 생성하는 방법이다. 컨테이너는 요청이 발생했을 때
+이름있는 빈에 대한 방법을 검색하고 실제 객체를 생성하는(또는 획득하는) 빈 정의로
+은닉화된 설정 메타데이터를 사용한다.</p>
+<p>XML기반의 설정 메타데이터를 사용하면<code class="literal">&lt;bean/&gt;</code> 요소의
+<code class="literal">class</code> 속성에서 인스턴스화 된 객체의 타입(또는 클래스)를 명시한다.
+이 <code class="literal">class</code> 속성은 내부적으로는 <code class="literal">BeanDefinition</code> 인스턴스의
+<code class="literal">Class</code> 프로퍼티다. class 속성은 강제적이다. (예외적인 상황에 대해서는,
+<a class="xref" href="beans.html#beans-factory-class-instance-factory-method" title="Instantiation using an instance factory method">&#8220;인스턴스 팩토리 메서드를 이용한 인스턴스화&#8221; 절</a>과
+<a class="xref" href="beans.html#beans-child-bean-definitions" title="5.7&nbsp;Bean definition inheritance">5.7절, &#8220;빈 정의 상속&#8221;</a>를 보아라)
+두 가지 방법중에 하나로 <code class="literal">Class</code> 프로퍼티를 사용한다.</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-Typically, to specify the bean class to be constructed in the case where the container
-itself directly creates the bean by calling its constructor reflectively, somewhat
-equivalent to Java code using the <code class="literal">new</code> operator.
+보통은, 컨테이너 스스로 리플렉션을 이용하여 빈의 생성자를 호출함으로써 직접 빈을 생성하는 경우에
+생성되는 빈의 클래스를 명시한다. 약간은 <code class="literal">new</code> 연산자를 사용하는 자바 코드와 비슷하다.
 </li><li class="listitem">
-To specify the actual class containing the <code class="literal">static</code> factory method that will be
-invoked to create the object, in the less common case where the container invokes a
-<code class="literal">static</code> <span class="emphasis"><em>factory</em></span> method on a class to create the bean. The object type returned
-from the invocation of the <code class="literal">static</code> factory method may be the same class or another
-class entirely.
+객체를 생성하기 위해 호출될 <code class="literal">static</code> 팩토리 메서드가 있는 실제 클래스를 지정한다.
+컨테이너가 빈을 생성하려고, 클래스에서 <code class="literal">static</code> <span class="emphasis"><em>factory</em></span> 메서드를 호출하는 경우는 일반적으로 드물다.
+ <code class="literal">static</code> 팩토리 메서드의 호출에서 리턴받은 객체의 타입은
+같은 클래스이거나 완전히 다른 클래스일 것이다.
 </li></ul></div>
 <div class="sidebar"><div class="titlepage"></div>
 <p>
-<b>Inner class names.&nbsp;</b>
-If you want to configure a bean definition for a <code class="literal">static</code> nested class, you have to use
-the <span class="emphasis"><em>binary</em></span> name of the inner class.
+<b>내부 클래스명&nbsp;</b>
+<code class="literal">static</code> 중첩클래스에 대한 빈 정의를 설정하고 싶다면
+내부 클래스의 <span class="emphasis"><em>binary</em></span> 이름을 사용해야 한다.
 </p>
-<p>For example, if you have a class called <code class="literal">Foo</code> in the <code class="literal">com.example</code> package, and this
-<code class="literal">Foo</code> class has a <code class="literal">static</code> inner class called <code class="literal">Bar</code>, the value of the <code class="literal">'class'</code>
-attribute on a bean definition would be&#8230;</p>
+<p>예를 들어, <code class="literal">com.example</code> 패키지에 <code class="literal">Foo</code>라는
+클래스가 있고, 이 클래스가 <code class="literal">Bar</code>라는
+<code class="literal">static</code> 내부 클래스가 있다면,
+빈 정의의 <code class="literal">'class'</code> 속성의 값은 다음과 같을 것이다&#8230;</p>
 <p><code class="literal">com.example.Foo$Bar</code></p>
-<p>Notice the use of the <code class="literal">$</code> character in the name to separate the inner class name from
-the outer class name.</p>
+<p>이름에서 <code class="literal">$</code> 문자는
+바깥쪽 클래스 이름과 내부 클래스 이름을 구분하기 위해 사용한다.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-ctor" href="#beans-factory-class-ctor"></a>Instantiation with a constructor</h4></div></div></div>
-<p>When you create a bean by the constructor approach, all normal classes are usable by and
-compatible with Spring. That is, the class being developed does not need to implement
-any specific interfaces or to be coded in a specific fashion. Simply specifying the bean
-class should suffice. However, depending on what type of IoC you use for that specific
-bean, you may need a default (empty) constructor.</p>
-<p>The Spring IoC container can manage virtually <span class="emphasis"><em>any</em></span> class you want it to manage; it is
-not limited to managing true JavaBeans. Most Spring users prefer actual JavaBeans with
-only a default (no-argument) constructor and appropriate setters and getters modeled
-after the properties in the container. You can also have more exotic non-bean-style
-classes in your container. If, for example, you need to use a legacy connection pool
-that absolutely does not adhere to the JavaBean specification, Spring can manage it as
-well.</p>
-<p>With XML-based configuration metadata you can specify your bean class as follows:</p>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-ctor" href="#beans-factory-class-ctor"></a>생성자를 이용한 인스턴스화</h4></div></div></div>
+<p>생성자로 빈을 생성하면 일반적인 모든 클래스는 스프링과 함께 사용할 수 있다.
+어떤 특정한 인터페이스를 구현하거나 특정한 스타일로 코딩할 필요가 없다.
+그냥 빈 클래스를 명시하는 것만으로도 충분하다. 하지만 빈을 명시하려고 사용하는 IoC의 종류에 따라
+기본 생성자(비어있는 생성자)가 필요할 수도 있다.</p>
+<p>스프링 IoC 컨테이너는 관리하고자 하는 <span class="emphasis"><em>거의 모든</em></span> 클래스를
+관리할 수 있다. 진짜 JavaBean만 관리할 수 있다는 제약 같은 건 없다.
+많은 스프링 사용자들은 기본 생성자(아규먼트가 없는)만 있는 실제 JavaBean에
+프로퍼티에 대한 적절한 setter와 getter를 사용하는 방법을 선호한다.
+물론 컨테이너에서 예외적으로 빈 스타일이 아닌 클래스도 사용할 수 있다.
+예를 들어 JavaBean 스펙을 전혀 따르지 않는 레거시 커넥션풀을 사용하더라도 스프링은 잘 관리할 수 있다.</p>
+<p>XML기반의 설정 메타데이터를 사용하면 다음과 같이 빈 클래스를 명시할 수 있다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"exampleBean"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"examples.ExampleBean"</span><span class="hl-tag">/&gt;</span>
 
 <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">name</span>=<span class="hl-value">"anotherExample"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"examples.ExampleBeanTwo"</span><span class="hl-tag">/&gt;</span></pre>
-<p>For details about the mechanism for supplying arguments to the constructor (if required)
-and setting object instance properties after the object is constructed, see
-<a class="link" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">Injecting Dependencies</a>.</p>
+<p>생성자에 아규먼트를 전달하거나(필요하다면) 객체가 생성된 후에 인스턴스에 프로퍼티를 설정하는 방법에 대해
+자세히 알고 싶다면, <a class="link" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">의존성 주입</a>을 참고해라.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-static-factory-method" href="#beans-factory-class-static-factory-method"></a>Instantiation with a static factory method</h4></div></div></div>
-<p>When defining a bean that you create with a static factory method, you use the <code class="literal">class</code>
-attribute to specify the class containing the <code class="literal">static</code> factory method and an attribute
-named <code class="literal">factory-method</code> to specify the name of the factory method itself. You should be
-able to call this method (with optional arguments as described later) and return a live
-object, which subsequently is treated as if it had been created through a constructor.
-One use for such a bean definition is to call <code class="literal">static</code> factories in legacy code.</p>
-<p>The following bean definition specifies that the bean will be created by calling a
-factory-method. The definition does not specify the type (class) of the returned object,
-only the class containing the factory method. In this example, the <code class="literal">createInstance()</code>
-method must be a <span class="emphasis"><em>static</em></span> method.</p>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-static-factory-method" href="#beans-factory-class-static-factory-method"></a>정적 팩토리 메서드를 이용한 인스턴스화</h4></div></div></div>
+<p>정적 팩토리 메서드로 생성하는 빈을 정의할 때 <code class="literal">static</code> 팩토리 메서드가 있는
+클래스를 지정하는 <code class="literal">class</code> 속성과 팩토리 메서드의 이름을 지정하는
+<code class="literal">factory-method</code> 속성을 사용한다. 이 팩토리 메서드를 호출하면
+(뒤에서 설명할 선택적인 아규먼트로), 생성자로 생성한 빈과 동일하게 취급하는 살아 있는 객체를 리턴받는다.
+레거시 코드에서 <code class="literal">static</code> 팩토리를 호출하는 것이 이러한 빈 정의의 한가지 사용법이다.</p>
+<p>다음 빈 정의는 팩토리 메서드를 호출해서 빈이 생성될 것이라는 지정한다.
+이 빈 정의는 리턴되는 객체의 타입(클래스)은 지정하지 않고 클래스의 팩토리 메서드만 지정했다.
+이 예제에서 <code class="literal">createInstance()</code> 메서드는 반드시
+<span class="emphasis"><em>정적</em></span> 메서드여야 한다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"clientService"</span>
     <span class="hl-attribute">class</span>=<span class="hl-value">"examples.ClientService"</span>
     <span class="hl-attribute">factory-method</span>=<span class="hl-value">"createInstance"</span><span class="hl-tag">/&gt;</span></pre>
@@ -411,24 +385,24 @@ method must be a <span class="emphasis"><em>static</em></span> method.</p>
         <span class="hl-keyword">return</span> clientService;
     }
 }</pre>
-<p>For details about the mechanism for supplying (optional) arguments to the factory method
-and setting object instance properties after the object is returned from the factory,
-see <a class="link" href="beans.html#beans-factory-properties-detailed" title="5.4.2&nbsp;Dependencies and configuration in detail">Dependencies and configuration in detail</a>.</p>
+<p>팩토리 메서드에 (선택적인) 아규먼트를 전달하고
+팩토리에서 리턴된 객체의 인스턴스에 프로퍼티를 설정하는 메커니즘에 대한 자세한 내용은
+<a class="link" href="beans.html#beans-factory-properties-detailed" title="5.4.2&nbsp;Dependencies and configuration in detail">의존성과 세부 설정</a>을 참고해라.</p>
 </div>
-<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-instance-factory-method" href="#beans-factory-class-instance-factory-method"></a>Instantiation using an instance factory method</h4></div></div></div>
-<p>Similar to instantiation through a <a class="link" href="beans.html#beans-factory-class-static-factory-method" title="Instantiation with a static factory method">static
-factory method</a>, instantiation with an instance factory method invokes a non-static
-method of an existing bean from the container to create a new bean. To use this
-mechanism, leave the <code class="literal">class</code> attribute empty, and in the <code class="literal">factory-bean</code> attribute,
-specify the name of a bean in the current (or parent/ancestor) container that contains
-the instance method that is to be invoked to create the object. Set the name of the
-factory method itself with the <code class="literal">factory-method</code> attribute.</p>
-<pre class="programlisting"><span class="hl-comment">&lt;!-- the factory bean, which contains a method called createInstance() --&gt;</span>
+<div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-class-instance-factory-method" href="#beans-factory-class-instance-factory-method"></a>인스턴스 팩토리 메서드를 이용한 인스턴스화</h4></div></div></div>
+<p><a class="link" href="beans.html#beans-factory-class-static-factory-method" title="Instantiation with a static factory method">정적 팩토리 메서드</a>를 통한 인스턴스화와 비슷한
+인스턴스의 팩토리 메서드를 이용한 인스턴스화는 새로운 빈을 생성하기 위해
+컨테이너에 존재하는 빈의 정적이 아닌 메서드를 호출한다.
+이 메커니즘을 사용하려면 <code class="literal">class</code> 속성을 비워두고
+<code class="literal">factory-bean</code> 속성에 현재 (또는 부모나 조상) 컨테이너에서
+객체를 생성하기 위해 호출하는 인스턴스 메서드를 가지고 있는 빈의 이름을 지정한다.
+<code class="literal">factory-method</code> 속성에 팩토리 메서드의 이름을 설정한다.</p>
+<pre class="programlisting"><span class="hl-comment">&lt;!-- createInstance()를 호출하는 메서드를 담고 있는 팩토리 빈 --&gt;</span>
 <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"serviceLocator"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"examples.DefaultServiceLocator"</span><span class="hl-tag">&gt;</span>
-    <span class="hl-comment">&lt;!-- inject any dependencies required by this locator bean --&gt;</span>
+    <span class="hl-comment">&lt;!-- 이 로케이터 빈으로 필요한 의존성을 주입한 --&gt;</span>
 <span class="hl-tag">&lt;/bean&gt;</span>
 
-<span class="hl-comment">&lt;!-- the bean to be created via the factory bean --&gt;</span>
+<span class="hl-comment">&lt;!-- 팩토리 빈을 통해 생성될 빈 --&gt;</span>
 <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"clientService"</span>
     <span class="hl-attribute">factory-bean</span>=<span class="hl-value">"serviceLocator"</span>
     <span class="hl-attribute">factory-method</span>=<span class="hl-value">"createClientServiceInstance"</span><span class="hl-tag">/&gt;</span></pre>
@@ -441,9 +415,9 @@ factory method itself with the <code class="literal">factory-method</code> attri
         <span class="hl-keyword">return</span> clientService;
     }
 }</pre>
-<p>One factory class can also hold more than one factory method as shown here:</p>
+<p>하나의 팩토리 클래스는 다음과 같이 하나 이상의 팩토리 메서드를 가질 수도 있다.</p>
 <pre class="programlisting"><span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"serviceLocator"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"examples.DefaultServiceLocator"</span><span class="hl-tag">&gt;</span>
-    <span class="hl-comment">&lt;!-- inject any dependencies required by this locator bean --&gt;</span>
+    <span class="hl-comment">&lt;!-- 이 로케이터 빈으로 필요한 의존성을 주입한다 --&gt;</span>
 <span class="hl-tag">&lt;/bean&gt;</span>
 
 <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"clientService"</span>
@@ -469,16 +443,13 @@ factory method itself with the <code class="literal">factory-method</code> attri
     }
 
 }</pre>
-<p>This approach shows that the factory bean itself can be managed and configured through
-dependency injection (DI). See <a class="link" href="beans.html#beans-factory-properties-detailed" title="5.4.2&nbsp;Dependencies and configuration in detail">Dependencies and
-configuration in detail</a>.</p>
+<p>이 접근은 팩토리 빈 스스로 의존성 주입 (DI)를 통해 관리되고 설정될 수 있다는 것을 보여준다.
+<a class="link" href="beans.html#beans-factory-properties-detailed" title="5.4.2&nbsp;Dependencies and configuration in detail">의존성과 세부 설정</a> 을 참고해라.</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
-<p>In Spring documentation,<span class="emphasis"><em> factory bean</em></span> refers to a bean that is configured in the
-Spring container that will create objects through an
-<a class="link" href="beans.html#beans-factory-class-instance-factory-method" title="Instantiation using an instance factory method">instance</a> or
-<a class="link" href="beans.html#beans-factory-class-static-factory-method" title="Instantiation with a static factory method">static</a> factory method. By contrast,
-<code class="literal">FactoryBean</code> (notice the capitalization) refers to a Spring-specific
-<a class="link" href="beans.html#beans-factory-extension-factorybean" title="5.8.3&nbsp;Customizing instantiation logic with a FactoryBean"><code class="literal">FactoryBean</code></a>.</p>
+<p>스프링 문서에서 <span class="emphasis"><em>팩토리 빈</em></span>은 스프링 컨테이너에 설정된 빈을 참조한다.
+이 빈은 <a class="link" href="beans.html#beans-factory-class-instance-factory-method" title="Instantiation using an instance factory method">인스턴스</a>나
+<a class="link" href="beans.html#beans-factory-class-static-factory-method" title="Instantiation with a static factory method">정적</a> 팩토리 메서드를 통해 객체를 생성하는 빈이다.
+반면에 <code class="literal">FactoryBean</code> (대문자에 주의해라)은 스프링 고유의 <a class="link" href="beans.html#beans-factory-extension-factorybean" title="5.8.3&nbsp;Customizing instantiation logic with a FactoryBean"><code class="literal">FactoryBean</code></a>을 참조한다.</p>
 </td></tr></table></div>
 </div>
 </div>
@@ -489,8 +460,8 @@ Spring parlance). Even the simplest application has a few objects that work toge
 present what the end-user sees as a coherent application. This next section explains how
 you go from defining a number of bean definitions that stand alone to a fully realized
 application where objects collaborate to achieve a goal.</p>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-collaborators" href="#beans-factory-collaborators"></a>5.4.1&nbsp;Dependency injection</h3></div></div></div>
-<p><span class="emphasis"><em>Dependency injection</em></span> (DI) is a process whereby objects define their dependencies,
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-collaborators" href="#beans-factory-collaborators"></a>5.4.1&nbsp;의존성 주입</h3></div></div></div>
+<p><span class="emphasis"><em>의존성 주입</em></span> (DI) is a process whereby objects define their dependencies,
 that is, the other objects they work with, only through constructor arguments, arguments
 to a factory method, or properties that are set on the object instance after it is
 constructed or returned from a factory method. The container then <span class="emphasis"><em>injects</em></span> those
@@ -693,7 +664,7 @@ can convert a value supplied in string format to all built-in types, such as <co
 <p>The Spring container validates the configuration of each bean as the container is created.
 However, the bean properties themselves are not set until the bean <span class="emphasis"><em>is actually created</em></span>.
 Beans that are singleton-scoped and set to be pre-instantiated (the default) are created
-when the container is created. Scopes are defined in <a class="xref" href="beans.html#beans-factory-scopes" title="5.5&nbsp;Bean scopes">Section&nbsp;5.5, &#8220;Bean scopes&#8221;</a>. Otherwise,
+when the container is created. Scopes are defined in <a class="xref" href="beans.html#beans-factory-scopes" title="5.5&nbsp;Bean scopes">5.5절, &#8220;Bean scopes&#8221;</a>. Otherwise,
 the bean is created only when it is requested. Creation of a bean potentially causes a
 graph of beans to be created, as the bean&#8217;s dependencies and its dependencies'
 dependencies (and so on) are created and assigned. Note that resolution mismatches among
@@ -841,7 +812,7 @@ from the use of the <code class="literal">factory-bean</code> attribute instead 
 details will not be discussed here.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-properties-detailed" href="#beans-factory-properties-detailed"></a>5.4.2&nbsp;Dependencies and configuration in detail</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-properties-detailed" href="#beans-factory-properties-detailed"></a>5.4.2&nbsp;의존성과 세부 설정</h3></div></div></div>
 <p>As mentioned in the previous section, you can define bean properties and constructor
 arguments as references to other managed beans (collaborators), or as values defined
 inline. Spring&#8217;s XML-based configuration metadata supports sub-element types within its
@@ -1399,7 +1370,7 @@ Designate a single bean definition as the <span class="emphasis"><em>primary</em
 <code class="literal">primary</code> attribute of its <code class="literal">&lt;bean/&gt;</code> element to <code class="literal">true</code>.
 </li><li class="listitem">
 Implement the more fine-grained control available
-with annotation-based configuration, as described in <a class="xref" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">Section&nbsp;5.9, &#8220;Annotation-based container configuration&#8221;</a>.
+with annotation-based configuration, as described in <a class="xref" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">5.9절, &#8220;Annotation-based container configuration&#8221;</a>.
 </li></ul></div>
 </div>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-factory-autowire-candidate" href="#beans-factory-autowire-candidate"></a>Excluding a bean from autowiring</h4></div></div></div>
@@ -1680,7 +1651,7 @@ beans that need to be cleaned up.</p>
 <p>In some respects, the Spring container&#8217;s role in regard to a prototype-scoped bean is a
 replacement for the Java <code class="literal">new</code> operator. All lifecycle management past that point must
 be handled by the client. (For details on the lifecycle of a bean in the Spring
-container, see <a class="xref" href="beans.html#beans-factory-lifecycle" title="5.6.1&nbsp;Lifecycle callbacks">Section&nbsp;5.6.1, &#8220;Lifecycle callbacks&#8221;</a>.)</p>
+container, see <a class="xref" href="beans.html#beans-factory-lifecycle" title="5.6.1&nbsp;Lifecycle callbacks">5.6.1절, &#8220;Lifecycle callbacks&#8221;</a>.)</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-scopes-sing-prot-interaction" href="#beans-factory-scopes-sing-prot-interaction"></a>5.5.3&nbsp;Singleton beans with prototype-bean dependencies</h3></div></div></div>
 <p>When you use singleton-scoped beans with dependencies on prototype beans, be aware that
@@ -1693,7 +1664,7 @@ prototype-scoped bean repeatedly at runtime. You cannot dependency-inject a
 prototype-scoped bean into your singleton bean, because that injection occurs only
 <span class="emphasis"><em>once</em></span>, when the Spring container is instantiating the singleton bean and resolving
 and injecting its dependencies. If you need a new instance of a prototype bean at
-runtime more than once, see <a class="xref" href="beans.html#beans-factory-method-injection" title="5.4.6&nbsp;Method injection">Section&nbsp;5.4.6, &#8220;Method injection&#8221;</a></p>
+runtime more than once, see <a class="xref" href="beans.html#beans-factory-method-injection" title="5.4.6&nbsp;Method injection">5.4.6절, &#8220;Method injection&#8221;</a></p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-factory-scopes-other" href="#beans-factory-scopes-other"></a>5.5.4&nbsp;Request, session, and global session scopes</h3></div></div></div>
 <p>The <code class="literal">request</code>, <code class="literal">session</code>, and <code class="literal">global session</code> scopes are <span class="emphasis"><em>only</em></span> available if you use
@@ -1893,7 +1864,7 @@ interfaces.</p>
     <span class="hl-tag">&lt;property</span> <span class="hl-attribute">name</span>=<span class="hl-value">"userPreferences"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"userPreferences"</span><span class="hl-tag">/&gt;</span>
 <span class="hl-tag">&lt;/bean&gt;</span></pre>
 <p>For more detailed information about choosing class-based or interface-based proxying,
-see <a class="xref" href="aop.html#aop-proxying" title="9.6&nbsp;Proxying mechanisms">Section&nbsp;9.6, &#8220;Proxying mechanisms&#8221;</a>.</p>
+see <a class="xref" href="aop.html#aop-proxying" title="9.6&nbsp;Proxying mechanisms">9.6절, &#8220;Proxying mechanisms&#8221;</a>.</p>
 </div>
 </div>
 </div>
@@ -2000,7 +1971,7 @@ to perform certain actions upon initialization and destruction of your beans.</p
 <p>The JSR-250 <code class="literal">@PostConstruct</code> and <code class="literal">@PreDestroy</code> annotations are generally considered best
 practice for receiving lifecycle callbacks in a modern Spring application. Using these
 annotations means that your beans are not coupled to Spring specific interfaces. For
-details see <a class="xref" href="beans.html#beans-postconstruct-and-predestroy-annotations" title="5.9.7&nbsp;@PostConstruct and @PreDestroy">Section&nbsp;5.9.7, &#8220;@PostConstruct and @PreDestroy&#8221;</a>.</p>
+details see <a class="xref" href="beans.html#beans-postconstruct-and-predestroy-annotations" title="5.9.7&nbsp;@PostConstruct and @PreDestroy">5.9.7절, &#8220;@PostConstruct and @PreDestroy&#8221;</a>.</p>
 <p>If you don&#8217;t want to use the JSR-250 annotations but you are still looking to remove
 coupling consider the use of init-method and destroy-method object definition metadata.</p>
 </td></tr></table></div>
@@ -2008,7 +1979,7 @@ coupling consider the use of init-method and destroy-method object definition me
 callback interfaces it can find and call the appropriate methods. If you need custom
 features or other lifecycle behavior Spring does not offer out-of-the-box, you can
 implement a <code class="literal">BeanPostProcessor</code> yourself. For more information, see
-<a class="xref" href="beans.html#beans-factory-extension" title="5.8&nbsp;Container Extension Points">Section&nbsp;5.8, &#8220;Container Extension Points&#8221;</a>.</p>
+<a class="xref" href="beans.html#beans-factory-extension" title="5.8&nbsp;Container Extension Points">5.8절, &#8220;Container Extension Points&#8221;</a>.</p>
 <p>In addition to the initialization and destruction callbacks, Spring-managed objects may
 also implement the <code class="literal">Lifecycle</code> interface so that those objects can participate in the
 startup and shutdown process as driven by the container&#8217;s own lifecycle.</p>
@@ -2311,17 +2282,17 @@ couples the code to Spring and does not follow the Inversion of Control style, w
 collaborators are provided to beans as properties. Other methods of the
 <code class="literal">ApplicationContext</code> provide access to file resources, publishing application events, and
 accessing a <code class="literal">MessageSource</code>. These additional features are described in
-<a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">Section&nbsp;5.15, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p>
+<a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">5.15절, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p>
 <p>As of Spring 2.5, autowiring is another alternative to obtain reference to the
 <code class="literal">ApplicationContext</code>. The "traditional" <code class="literal">constructor</code> and <code class="literal">byType</code> autowiring modes (as
-described in <a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">Section&nbsp;5.4.5, &#8220;Autowiring collaborators&#8221;</a>) can provide a dependency of type
+described in <a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">5.4.5절, &#8220;Autowiring collaborators&#8221;</a>) can provide a dependency of type
 <code class="literal">ApplicationContext</code> for a constructor argument or setter method parameter,
 respectively. For more flexibility, including the ability to autowire fields and
 multiple parameter methods, use the new annotation-based autowiring features. If you do,
 the <code class="literal">ApplicationContext</code> is autowired into a field, constructor argument, or method
 parameter that is expecting the <code class="literal">ApplicationContext</code> type if the field, constructor, or
 method in question carries the <code class="literal">@Autowired</code> annotation. For more information, see
-<a class="xref" href="beans.html#beans-autowired-annotation" title="5.9.2&nbsp;@Autowired">Section&nbsp;5.9.2, &#8220;@Autowired&#8221;</a>.</p>
+<a class="xref" href="beans.html#beans-autowired-annotation" title="5.9.2&nbsp;@Autowired">5.9.2절, &#8220;@Autowired&#8221;</a>.</p>
 <p>When an <code class="literal">ApplicationContext</code> creates a class that implements the
 <code class="literal">org.springframework.beans.factory.BeanNameAware</code> interface, the class is provided with
 a reference to the name defined in its associated object definition.</p>
@@ -2341,9 +2312,9 @@ require a certain <span class="emphasis"><em>infrastructure</em></span> dependen
 are summarized below - as a general rule, the name is a good indication of the
 dependency type:</p>
 <div class="table"><a name="beans-factory-nature-aware-list" href="#beans-factory-nature-aware-list"></a><p class="title"><b>Table&nbsp;5.4.&nbsp;Aware interfaces</b></p><div class="table-contents">
-<table summary="Aware interfaces" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col class="col_1"><col class="col_2"><col class="col_3"></colgroup><thead><tr><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">Name</th><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">Injected Dependency</th><th style="border-bottom: 0.5pt solid ; " align="left" valign="top">Explained in&#8230;</th></tr></thead><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ApplicationContextAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Declaring <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">Section&nbsp;5.6.2, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ApplicationEventPublisherAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Event publisher of the enclosing <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">Section&nbsp;5.15, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanClassLoaderAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Class loader used to load the bean classes.</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-class" title="5.3.2&nbsp;Instantiating beans">Section&nbsp;5.3.2, &#8220;Instantiating beans&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanFactoryAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Declaring <code class="literal">BeanFactory</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">Section&nbsp;5.6.2, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanNameAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Name of the declaring bean</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">Section&nbsp;5.6.2, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BootstrapContextAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Resource adapter <code class="literal">BootstrapContext</code> the container runs in. Typically available only in
-JCA aware <code class="literal">ApplicationContext</code>s</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="cci.html" title="26.&nbsp;JCA CCI">Chapter&nbsp;26, <i>JCA CCI</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">LoadTimeWeaverAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Defined <span class="emphasis"><em>weaver</em></span> for processing class definition at load time</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="aop.html#aop-aj-ltw" title="9.8.4&nbsp;Load-time weaving with AspectJ in the Spring Framework">Section&nbsp;9.8.4, &#8220;Load-time weaving with AspectJ in the Spring Framework&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">MessageSourceAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Configured strategy for resolving messages (with support for parametrization and
-internationalization)</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">Section&nbsp;5.15, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">NotificationPublisherAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Spring JMX notification publisher</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="jmx.html#jmx-notifications" title="25.7&nbsp;Notifications">Section&nbsp;25.7, &#8220;Notifications&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">PortletConfigAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Current <code class="literal">PortletConfig</code> the container runs in. Valid only in a web-aware Spring
+<table summary="Aware interfaces" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col class="col_1"><col class="col_2"><col class="col_3"></colgroup><thead><tr><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">Name</th><th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top">Injected Dependency</th><th style="border-bottom: 0.5pt solid ; " align="left" valign="top">Explained in&#8230;</th></tr></thead><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ApplicationContextAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Declaring <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">5.6.2절, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ApplicationEventPublisherAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Event publisher of the enclosing <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">5.15절, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanClassLoaderAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Class loader used to load the bean classes.</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-class" title="5.3.2&nbsp;Instantiating beans">5.3.2절, &#8220;Instantiating beans&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanFactoryAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Declaring <code class="literal">BeanFactory</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">5.6.2절, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BeanNameAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Name of the declaring bean</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#beans-factory-aware" title="5.6.2&nbsp;ApplicationContextAware and BeanNameAware">5.6.2절, &#8220;ApplicationContextAware and BeanNameAware&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">BootstrapContextAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Resource adapter <code class="literal">BootstrapContext</code> the container runs in. Typically available only in
+JCA aware <code class="literal">ApplicationContext</code>s</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="cci.html" title="26.&nbsp;JCA CCI">Chapter&nbsp;26, <i>JCA CCI</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">LoadTimeWeaverAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Defined <span class="emphasis"><em>weaver</em></span> for processing class definition at load time</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="aop.html#aop-aj-ltw" title="9.8.4&nbsp;Load-time weaving with AspectJ in the Spring Framework">9.8.4절, &#8220;Load-time weaving with AspectJ in the Spring Framework&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">MessageSourceAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Configured strategy for resolving messages (with support for parametrization and
+internationalization)</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="beans.html#context-introduction" title="5.15&nbsp;Additional Capabilities of the ApplicationContext">5.15절, &#8220;Additional Capabilities of the ApplicationContext&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">NotificationPublisherAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Spring JMX notification publisher</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="jmx.html#jmx-notifications" title="25.7&nbsp;Notifications">25.7절, &#8220;Notifications&#8221;</a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">PortletConfigAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Current <code class="literal">PortletConfig</code> the container runs in. Valid only in a web-aware Spring
 <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="portlet.html" title="20.&nbsp;Portlet MVC Framework">Chapter&nbsp;20, <i>Portlet MVC Framework</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">PortletContextAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Current <code class="literal">PortletContext</code> the container runs in. Valid only in a web-aware Spring
 <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="portlet.html" title="20.&nbsp;Portlet MVC Framework">Chapter&nbsp;20, <i>Portlet MVC Framework</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ResourceLoaderAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Configured loader for low-level access to resources</p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="resources.html" title="6.&nbsp;리소스들">Chapter&nbsp;6, <i>Resources</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ServletConfigAware</code></p></td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left" valign="top"><p>Current <code class="literal">ServletConfig</code> the container runs in. Valid only in a web-aware Spring
 <code class="literal">ApplicationContext</code></p></td><td style="border-bottom: 0.5pt solid ; " align="left" valign="top"><p><a class="xref" href="mvc.html" title="17.&nbsp;Web MVC framework">Chapter&nbsp;17, <i>Web MVC framework</i></a></p></td></tr><tr><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p><code class="literal">ServletContextAware</code></p></td><td style="border-right: 0.5pt solid ; " align="left" valign="top"><p>Current <code class="literal">ServletContext</code> the container runs in. Valid only in a web-aware Spring
@@ -2354,7 +2325,7 @@ follow the Inversion of Control style. As such, they are recommended for infrast
 beans that require programmatic access to the container.</p>
 </div>
 </div>
-<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-child-bean-definitions" href="#beans-child-bean-definitions"></a>5.7&nbsp;Bean definition inheritance</h2></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-child-bean-definitions" href="#beans-child-bean-definitions"></a>5.7&nbsp;빈 정의 상속</h2></div></div></div>
 <p>A bean definition can contain a lot of configuration information, including constructor
 arguments, property values, and container-specific information such as initialization
 method, static factory method name, and so on. A child bean definition inherits
@@ -2447,7 +2418,7 @@ defined in one container are not post-processed by a <code class="literal">BeanP
 another container, even if both containers are part of the same hierarchy.</p>
 <p>To change the actual bean definition (i.e., the <span class="emphasis"><em>blueprint</em></span> that defines the bean),
 you instead need to use a <code class="literal">BeanFactoryPostProcessor</code> as described in
-<a class="xref" href="beans.html#beans-factory-extension-factory-postprocessors" title="5.8.2&nbsp;Customizing configuration metadata with a BeanFactoryPostProcessor">Section&nbsp;5.8.2, &#8220;Customizing configuration metadata with a BeanFactoryPostProcessor&#8221;</a>.</p>
+<a class="xref" href="beans.html#beans-factory-extension-factory-postprocessors" title="5.8.2&nbsp;Customizing configuration metadata with a BeanFactoryPostProcessor">5.8.2절, &#8220;Customizing configuration metadata with a BeanFactoryPostProcessor&#8221;</a>.</p>
 </td></tr></table></div>
 <p>The <code class="literal">org.springframework.beans.factory.config.BeanPostProcessor</code> interface consists of
 exactly two callback methods. When such a class is registered as a post-processor with
@@ -2602,7 +2573,7 @@ consider implementing the <code class="literal">Ordered</code> interface too. Co
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
 <p>If you want to change the actual bean <span class="emphasis"><em>instances</em></span> (i.e., the objects that are created
 from the configuration metadata), then you instead need to use a <code class="literal">BeanPostProcessor</code>
-(described above in <a class="xref" href="beans.html#beans-factory-extension-bpp" title="5.8.1&nbsp;Customizing beans using a BeanPostProcessor">Section&nbsp;5.8.1, &#8220;Customizing beans using a BeanPostProcessor&#8221;</a>). While it is technically possible
+(described above in <a class="xref" href="beans.html#beans-factory-extension-bpp" title="5.8.1&nbsp;Customizing beans using a BeanPostProcessor">5.8.1절, &#8220;Customizing beans using a BeanPostProcessor&#8221;</a>). While it is technically possible
 to work with bean instances within a <code class="literal">BeanFactoryPostProcessor</code> (e.g., using
 <code class="literal">BeanFactory.getBean()</code>), doing so causes premature bean instantiation, violating the
 standard container lifecycle. This may cause negative side effects such as bypassing
@@ -2795,7 +2766,7 @@ Spring IoC container. For example, Spring 2.0 introduced the possibility of enfo
 required properties with the <a class="link" href="beans.html#beans-required-annotation" title="5.9.1&nbsp;@Required">@Required</a> annotation. Spring
 2.5 made it possible to follow that same general approach to drive Spring&#8217;s dependency
 injection. Essentially, the <code class="literal">@Autowired</code> annotation provides the same capabilities as
-described in <a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">Section&nbsp;5.4.5, &#8220;Autowiring collaborators&#8221;</a> but with more fine-grained control and wider
+described in <a class="xref" href="beans.html#beans-factory-autowire" title="5.4.5&nbsp;Autowiring collaborators">5.4.5절, &#8220;Autowiring collaborators&#8221;</a> but with more fine-grained control and wider
 applicability. Spring 2.5 also added support for JSR-250 annotations such as
 <code class="literal">@PostConstruct</code>, and <code class="literal">@PreDestroy</code>. Spring 3.0 added support for JSR-330 (Dependency
 Injection for Java) annotations contained in the javax.inject package such as <code class="literal">@Inject</code>
@@ -2831,7 +2802,7 @@ as well as the aforementioned
 application context in which it is defined. This means that, if you put
 <code class="literal">&lt;context:annotation-config/&gt;</code> in a <code class="literal">WebApplicationContext</code> for a <code class="literal">DispatcherServlet</code>,
 it only checks for <code class="literal">@Autowired</code> beans in your controllers, and not your services. See
-<a class="xref" href="mvc.html#mvc-servlet" title="17.2&nbsp;The DispatcherServlet">Section&nbsp;17.2, &#8220;The DispatcherServlet&#8221;</a> for more information.</p>
+<a class="xref" href="mvc.html#mvc-servlet" title="17.2&nbsp;The DispatcherServlet">17.2절, &#8220;The DispatcherServlet&#8221;</a> for more information.</p>
 </td></tr></table></div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-required-annotation" href="#beans-required-annotation"></a>5.9.1&nbsp;@Required</h3></div></div></div>
 <p>The <code class="literal">@Required</code> annotation applies to bean property setter methods, as in the following
@@ -3149,8 +3120,8 @@ demonstrated in the following example.</p>
     <span class="hl-tag">&lt;bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"movieRecommender"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"example.MovieRecommender"</span><span class="hl-tag">/&gt;</span>
 
 <span class="hl-tag">&lt;/beans&gt;</span></pre>
-<p>In <a class="xref" href="beans.html#beans-classpath-scanning" title="5.10&nbsp;Classpath scanning and managed components">Section&nbsp;5.10, &#8220;Classpath scanning and managed components&#8221;</a>, you will see an annotation-based alternative to
-providing the qualifier metadata in XML. Specifically, see <a class="xref" href="beans.html#beans-scanning-qualifiers" title="5.10.8&nbsp;Providing qualifier metadata with annotations">Section&nbsp;5.10.8, &#8220;Providing qualifier metadata with annotations&#8221;</a>.</p>
+<p>In <a class="xref" href="beans.html#beans-classpath-scanning" title="5.10&nbsp;Classpath scanning and managed components">5.10절, &#8220;Classpath scanning and managed components&#8221;</a>, you will see an annotation-based alternative to
+providing the qualifier metadata in XML. Specifically, see <a class="xref" href="beans.html#beans-scanning-qualifiers" title="5.10.8&nbsp;Providing qualifier metadata with annotations">5.10.8절, &#8220;Providing qualifier metadata with annotations&#8221;</a>.</p>
 <p>In some cases, it may be sufficient to use an annotation without a value. This may be
 useful when the annotation serves a more generic purpose and can be applied across
 several different types of dependencies. For example, you may provide an <span class="emphasis"><em>offline</em></span>
@@ -3421,7 +3392,7 @@ pre-populated upon initialization and cleared upon destruction.</p>
 <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beans-classpath-scanning" href="#beans-classpath-scanning"></a>5.10&nbsp;Classpath scanning and managed components</h2></div></div></div>
 <p>Most examples in this chapter use XML to specify the configuration metadata that
 produces each <code class="literal">BeanDefinition</code> within the Spring container. The previous section
-(<a class="xref" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">Section&nbsp;5.9, &#8220;Annotation-based container configuration&#8221;</a>) demonstrates how to provide a lot of the configuration
+(<a class="xref" href="beans.html#beans-annotation-config" title="5.9&nbsp;Annotation-based container configuration">5.9절, &#8220;Annotation-based container configuration&#8221;</a>) demonstrates how to provide a lot of the configuration
 metadata through source-level annotations. Even in those examples, however, the "base"
 bean definitions are explicitly defined in the XML file, while the annotations only
 drive the dependency injection. This section describes an option for implicitly
@@ -3441,7 +3412,7 @@ than using the traditional XML files. Take a look at the <code class="literal">@
 <p>The <code class="literal">@Repository</code> annotation is a marker for any class that fulfills the role or
 <span class="emphasis"><em>stereotype</em></span> (also known as Data Access Object or DAO) of a repository. Among the uses
 of this marker is the automatic translation of exceptions as described in
-<a class="xref" href="orm.html#orm-exception-translation" title="15.2.2&nbsp;Exception translation">Section&nbsp;15.2.2, &#8220;Exception translation&#8221;</a>.</p>
+<a class="xref" href="orm.html#orm-exception-translation" title="15.2.2&nbsp;Exception translation">15.2.2절, &#8220;Exception translation&#8221;</a>.</p>
 <p>Spring provides further stereotype annotations: <code class="literal">@Component</code>, <code class="literal">@Service</code>, and
 <code class="literal">@Controller</code>. <code class="literal">@Component</code> is a generic stereotype for any Spring-managed component.
 <code class="literal">@Repository</code>, <code class="literal">@Service</code>, and <code class="literal">@Controller</code> are specializations of <code class="literal">@Component</code> for
@@ -3789,7 +3760,7 @@ the following configuration will result in standard JDK dynamic proxies:</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="beans-scanning-qualifiers" href="#beans-scanning-qualifiers"></a>5.10.8&nbsp;Providing qualifier metadata with annotations</h3></div></div></div>
 
-<p>The <code class="literal">@Qualifier</code> annotation is discussed in <a class="xref" href="beans.html#beans-autowired-annotation-qualifiers" title="5.9.3&nbsp;Fine-tuning annotation-based autowiring with qualifiers">Section&nbsp;5.9.3, &#8220;Fine-tuning annotation-based autowiring with qualifiers&#8221;</a>.
+<p>The <code class="literal">@Qualifier</code> annotation is discussed in <a class="xref" href="beans.html#beans-autowired-annotation-qualifiers" title="5.9.3&nbsp;Fine-tuning annotation-based autowiring with qualifiers">5.9.3절, &#8220;Fine-tuning annotation-based autowiring with qualifiers&#8221;</a>.
 The examples in that section demonstrate the use of the <code class="literal">@Qualifier</code> annotation and
 custom qualifier annotations to provide fine-grained control when you resolve autowire
 candidates. Because those examples were based on XML bean definitions, the qualifier
@@ -4319,7 +4290,7 @@ resulting bean. This functionality can be overridden, however, with the <code cl
 </div>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-java-bean-aliasing" href="#beans-java-bean-aliasing"></a>Bean aliasing</h4></div></div></div>
 
-<p>As discussed in <a class="xref" href="beans.html#beans-beanname" title="5.3.1&nbsp;Naming beans">Section&nbsp;5.3.1, &#8220;Naming beans&#8221;</a>, it is sometimes desirable to give a single bean
+<p>As discussed in <a class="xref" href="beans.html#beans-beanname" title="5.3.1&nbsp;Naming beans">5.3.1절, &#8220;Naming beans&#8221;</a>, it is sometimes desirable to give a single bean
 multiple names, otherwise known as<span class="emphasis"><em>bean aliasing</em></span>. The <code class="literal">name</code> attribute of the <code class="literal">@Bean</code>
 annotation accepts a String array for this purpose.</p>
 <pre class="programlisting"><em><span class="hl-annotation" style="color: gray">@Configuration</span></em>
@@ -4358,7 +4329,7 @@ annotation can be used:</p>
 <p><code class="literal">@Configuration</code> is a class-level annotation indicating that an object is a source of
 bean definitions. <code class="literal">@Configuration</code> classes declare beans via public <code class="literal">@Bean</code> annotated
 methods. Calls to <code class="literal">@Bean</code> methods on <code class="literal">@Configuration</code> classes can also be used to define
-inter-bean dependencies. See <a class="xref" href="beans.html#beans-java-basic-concepts" title="5.12.1&nbsp;Basic concepts: @Bean and @Configuration">Section&nbsp;5.12.1, &#8220;Basic concepts: @Bean and @Configuration&#8221;</a> for a general introduction.</p>
+inter-bean dependencies. See <a class="xref" href="beans.html#beans-java-basic-concepts" title="5.12.1&nbsp;Basic concepts: @Bean and @Configuration">5.12.1절, &#8220;Basic concepts: @Bean and @Configuration&#8221;</a> for a general introduction.</p>
 <div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="beans-java-injecting-dependencies" href="#beans-java-injecting-dependencies"></a>Injecting inter-bean dependencies</h4></div></div></div>
 
 <p>When <code class="literal">@Bean</code>s have dependencies on one another, expressing that dependency is as simple
@@ -4672,7 +4643,7 @@ than the usual process of navigating interface-based code.</p>
 <p>It is often useful to conditionally enable to disable a complete <code class="literal">@Configuration</code> class,
 or even individual <code class="literal">@Bean</code> methods, based on some arbitrary system state. One common
 example of this it to use the <code class="literal">@Profile</code> annotation to active beans only when a specific
-profile has been enabled in the Spring <code class="literal">Environment</code> (see <a class="xref" href="beans.html#beans-definition-profiles" title="5.13.1&nbsp;Bean definition profiles">Section&nbsp;5.13.1, &#8220;Bean definition profiles&#8221;</a>
+profile has been enabled in the Spring <code class="literal">Environment</code> (see <a class="xref" href="beans.html#beans-definition-profiles" title="5.13.1&nbsp;Bean definition profiles">5.13.1절, &#8220;Bean definition profiles&#8221;</a>
 for details).</p>
 <p>The <code class="literal">@Profile</code> annotation is actually implemented using a much more flexible annotation
 called <a class="ulink" href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Conditional.html" target="_top"><code class="literal">@Conditional</code></a>.
@@ -5056,7 +5027,7 @@ ctx.refresh();</pre>
 <p>In addition, profiles may also be activated declaratively through the <code class="literal">spring.profiles.active</code>
 property which may be specified through system environment variables, JVM system properties,
 servlet context parameters in <code class="literal">web.xml</code> or even as an entry in JNDI (see
-<a class="xref" href="beans.html#beans-property-source-abstraction" title="5.13.3&nbsp;PropertySource Abstraction">Section&nbsp;5.13.3, &#8220;PropertySource Abstraction&#8221;</a>).</p>
+<a class="xref" href="beans.html#beans-property-source-abstraction" title="5.13.3&nbsp;PropertySource Abstraction">5.13.3절, &#8220;PropertySource Abstraction&#8221;</a>).</p>
 <p>Note that profiles are not an "either-or" proposition; it is possible to activate multiple
 profiles at once. Programmatically, simply provide multiple profile names to the
 <code class="literal">setActiveProfiles()</code> method, which accepts <code class="literal">String...</code> varargs:</p>
@@ -5226,7 +5197,7 @@ may implement <code class="literal">LoadTimeWeaverAware</code>, thereby receivin
 weaver instance. This is particularly useful in combination with <a class="link" href="orm.html#orm-jpa" title="15.5&nbsp;JPA">Spring&#8217;s JPA
 support</a> where load-time weaving may be necessary for JPA class transformation. Consult
 the <code class="literal">LocalContainerEntityManagerFactoryBean</code> javadocs for more detail. For more on
-AspectJ load-time weaving, see <a class="xref" href="aop.html#aop-aj-ltw" title="9.8.4&nbsp;Load-time weaving with AspectJ in the Spring Framework">Section&nbsp;9.8.4, &#8220;Load-time weaving with AspectJ in the Spring Framework&#8221;</a>.</p>
+AspectJ load-time weaving, see <a class="xref" href="aop.html#aop-aj-ltw" title="9.8.4&nbsp;Load-time weaving with AspectJ in the Spring Framework">9.8.4절, &#8220;Load-time weaving with AspectJ in the Spring Framework&#8221;</a>.</p>
 </div>
 <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="context-introduction" href="#context-introduction"></a>5.15&nbsp;Additional Capabilities of the ApplicationContext</h2></div></div></div>
 
@@ -5736,6 +5707,6 @@ team blog entry</a>.</p>
 </div>
 </div>
 <div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.d5e1120" class="footnote"><p><a href="#d5e1120" class="simpara"><sup class="simpara">[1] </sup></a>See <a class="xref" href="overview.html#background-ioc" title="Background">Background</a> </p></div><div id="ftn.d5e1944" class="footnote"><p><a href="#d5e1944" class="simpara"><sup class="simpara">[2] </sup></a>See
-<a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">Section&nbsp;5.4.1, &#8220;Dependency injection&#8221;</a></p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="spring-core.html">이전</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="spring-core.html">위로</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="resources.html">다음</a></td></tr><tr><td width="40%" align="left" valign="top">III부.&nbsp;핵심 기술들&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">홈</a></td><td width="40%" align="right" valign="top">&nbsp;6.&nbsp;리소스들</td></tr></table></div><!-- Begin new Google code - a mod -->
+<a class="xref" href="beans.html#beans-factory-collaborators" title="5.4.1&nbsp;Dependency injection">5.4.1절, &#8220;의존성 주입&#8221;</a></p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="spring-core.html">이전</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="spring-core.html">위로</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="resources.html">다음</a></td></tr><tr><td width="40%" align="left" valign="top">III부.&nbsp;핵심 기술들&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">홈</a></td><td width="40%" align="right" valign="top">&nbsp;6.&nbsp;리소스들</td></tr></table></div><!-- Begin new Google code - a mod -->
 </body>
 </html>
