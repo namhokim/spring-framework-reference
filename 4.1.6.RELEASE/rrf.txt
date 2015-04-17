@@ -1,4 +1,4 @@
-﻿Spring Framework Reference Documentation
+Spring Framework Reference Documentation
 스프링 프레임워크 레퍼런스 문서
 
 <h2>Authors</h2>
@@ -194,10 +194,52 @@ III부.&nbsp;핵심 기술들
 5.&nbsp;IoC 컨테이너
 
 ">6. Resources</a></span>
-">6. 리소스들</a></span>
+">6. 리소스</a></span>
 
 6.&nbsp;Resources
-6.&nbsp;리소스들
+6.&nbsp;리소스
+
+6.1. Introduction
+6.1. 소개
+
+6.2. The Resource interface
+6.2. Resource 인터페이스
+
+6.3. Built-in Resource implementations
+6.3. 내장된 Resource 구현체
+
+6.4. The ResourceLoader
+6.4. ResourceLoader 인터페이스
+
+6.5. The ResourceLoaderAware interface
+6.5. ResourceLoaderAware 인터페이스
+
+6.6. Resources as dependencies
+6.6. 의존성으로서의 리소스
+
+6.7. Application contexts and Resource paths
+6.7. 애플리케이션 컨텍스트와 Resource 경로
+
+6.7.1. Constructing application contexts
+6.7.1. 애플리케이션 컨텍스트 생성
+
+Constructing ClassPathXmlApplicationContext instances - shortcuts
+ClassPathXmlApplicationContext 인스턴스 생성하기 - 단축법
+
+6.7.2. Wildcards in application context constructor resource paths
+6.7.2. 애플리케이션 컨텍스트 생성자 리소스 경로에 와일드카드 사용하기
+
+Ant-style Patterns
+Ant 스타일의 패턴
+
+The Classpath*: portability classpath*: prefix
+Classpath*: classpath*의 이식성: 접두사
+
+Other notes relating to wildcards
+와일드 카드와 관련된 추가적인 내용
+
+6.7.3. FileSystemResource caveats
+6.7.3. FileSystemResource의 주의사항
 
 ">7. Validation, Data Binding, and Type Conversion</a></span>
 ">7. 검증, 데이터 바인딩, 타입 변환</a></span>
